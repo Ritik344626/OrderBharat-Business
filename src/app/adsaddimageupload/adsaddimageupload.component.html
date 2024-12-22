@@ -1,0 +1,30 @@
+<app-subheader></app-subheader>
+    <div class="mainbody step1">  
+      <h6>Business Name: {{ businessdetails.name }}</h6> 
+      <hr/>    
+        <form>
+          <div class="form-group">
+            <input type="text" name="ads_name"  [(ngModel)]="ads_name"  placeholder="Ads Name" class="form-control" >
+          </div>
+             <hr/>
+             <!-- <h6>Image Size (336px x 70px)</h6>
+            <div class="ads"><img (click)="chooseimage1()" src="{{ base64File1 }}" height="70px" width="336px" />   </div>  
+            
+         
+            <hr/>
+             <h6>Image Size (336px x 186px)</h6>
+            <div class="enquiry"><img (click)="chooseimage2()" src="{{ base64File2 }}"  height="186px" width="336px"/>   </div> 
+
+            <hr/>
+            <h6>Image Size (336px x 300px)</h6>
+           <div class="enquiry"><img (click)="chooseimage3()" src="{{ base64File3 }}" height="300px" width="336px" />   </div>  -->
+
+         
+          <div class="fullbutton">
+            <input id="uploadbtn" type="submit" value="Update"  (click)="submitquery()"/>
+          </div>
+        </form>
+     
+    </div>
+   
+    <app-footer></app-footer>

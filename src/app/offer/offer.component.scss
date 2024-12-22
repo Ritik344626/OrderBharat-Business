@@ -1,0 +1,84 @@
+.leftside{display: flex;}
+.mainbox{margin-top: 40px;
+    height: 90vh; padding: 0 10px;
+  }
+  
+  ion-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  
+ion-model{
+    ion-toolbar{
+    height: 5vh;
+}
+}
+swiper-slide{
+    img{
+        width: 100vw;
+        height: 92.5vh;
+        overflow: hidden;
+    }
+}
+
+.header-image{
+    height: 12vw;
+    width: 12vw;
+    margin: 8px 0px 0 15px;
+    padding: 0 !important;
+    border:  0.2px solid black;
+}
+
+.customerlist li h5 {
+    font-size: 13px;
+}
+
+.customersale {
+    margin-top: 45px !important;
+    margin-bottom: 110px;
+}
+.imagebox{
+    // height: 80px;
+    // background-color: black;
+    // width: 20%;
+    margin-bottom: 11px;
+    margin-right: 10px;
+}
+
+
+.buttombar .box{width: 100%; font-size: 16px; text-align: center;cursor: pointer;}
+.buttombar .box1{background-color: darkgreen;
+    color: white;
+    margin-right: 10px;
+    padding: 9px 0px;
+    width: 56px;
+    right: 0px;
+    position: fixed;
+    bottom: 80px;
+    border: 0px;
+    font-size: 27px; -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+}
+
+.custom-modal{
+    background-color: white;
+}
+.item-native {padding-left:0px!important;}
+
+.product-details{position: absolute; bottom:50px!important; height: 100px; background-color: #fff; padding: 10px;  opacity: .8; width: 100%; display: flex;}
+
+.product-details .imagebox{ width: 30%; }
+.product-details .imagebox img{width: 100%; height: 80px; }
+
+.product-details .product-details-text{width: 70%;}
+.product-details .product-details-text h4{font-size: 14px; margin-top: 0px; margin-bottom: 0px;}
+.product-details .product-details-text p{font-size: 12px; margin-bottom: 0px;
+    line-height: 18px;}
+.pricebox{font-size: 14px; line-height: 20px; width:55%; margin-right: 5%; margin-top: 10px;}
+.pricebox .offer{color: green;}
+.pricebox .mrp{color: red; text-decoration: line-through;}
+.section1{display: flex;  }
+.section1 a{color: #fff; font-size: 14px;}
+.section1 .ordernow{background-color: green; padding: 5px 10px;}

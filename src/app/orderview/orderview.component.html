@@ -1,0 +1,161 @@
+<app-subheader></app-subheader>
+<div class="mainbody">
+  <div id="invoice-POS" >
+    <div id="top">
+      <div class="logo"></div>
+      <div class="info">
+        <div class="top">
+          <div class="leftside">
+            <h5>Order Details</h5>  
+            <p>Order Number : {{ data.reference_no}}</p> 
+            <p>Date:  <strong>{{ data.date  |  date:"dd-MM-yyyy"}} </strong></p>
+          </div>
+          <div class="rightside">          
+          <div class="share1"  (click)="share()"><i class="fa fa-share-alt" aria-hidden="true"></i> Share</div>
+        </div>
+
+        </div>
+      <hr/>
+              <div style="text-align:left">
+                <h5>{{ data.biller_company }} </h5>                      
+                {{ data.biller_address}}
+                  <br>
+                  {{ data.biller_city}},
+                  {{ data.biller_state}},
+                  {{ data.biller_country}}
+                  <br>  <br>
+                 <strong> Mobile: </strong>{{ data.biller_mobile}}
+                  <br>
+                  <strong>E-mail: </strong>{{ data.biller_email}}
+                  <br>
+                  <strong>GSTIN/UIN: </strong>{{ data.biller_gstid}}
+                  </div>
+                  <hr/>
+                  <div id="mid">
+                    <div class="info">
+                    <h5>Billing Address</h5>
+                    <hr/>
+                              <h5>{{ data.customer_name }} </h5>
+                              {{ data.customer_address}}
+                          <br>
+                          {{ data.customer_city}},{{data.customer_state}}-{{ data.customer_postal_code}} 
+                          <br>  <br>
+                         <strong>Mobile:</strong> {{ data.customer_mobile}}
+                          <br>
+                          <strong>E-mail:</strong>{{ data.customer_email}}
+                          <br>
+                          <strong>GSTIN/UIN :</strong> {{ data.customer_gstid}}
+                           
+                      
+                    </div>
+                  </div>          
+                  <hr/>
+        
+                  <div id="bot">
+                    <div id="table">
+                      <table width="100%" class="table">
+                        <tr>
+                          <th style="width: 50%;">Item</th>
+                          <th>Qty</th>
+                          <th style="text-align: right;">Sub Total</th>
+                        </tr>
+                         
+                        <tr class="service"  *ngFor="let data1 of items">
+                          <td>{{ data1.name}}
+<br/>
+                            <p *ngIf="data1.description!=='0'">Booking date: {{ data1.description }}</p>
+                          </td>
+                          <td>{{ data1.quantity}}</td>
+                          <td style="text-align: right;">{{ data1.price}}</td>
+                        </tr>
+                        <!-- <tr class="total" *ngIf="data.biller_state_id == data.customer_state_id">
+                          <td colspan="2" align="right">CGST</td>
+                          <td>{{ data.tax_value / 2}}</td>
+                        </tr>
+                        <tr class="total"  *ngIf="data.biller_state_id == data.customer_state_id">
+                          <td colspan="2" align="right">SGST</td>
+                          <td>{{ data.tax_value / 2}}</td>
+                        </tr>
+
+                        <tr class="total"  *ngIf="data.biller_state_id != data.customer_state_id">
+                          <td colspan="2" align="right">IGST</td>
+                          <td>{{ data.tax_value}}</td>
+                        </tr> -->
+                        <tr class="total">
+                          <td colspan="2" align="right"><strong>Total :</strong>  </td>
+                          <td style="text-align: right;"><strong>{{ data.order_value}}</strong></td>
+                        </tr>
+                      </table>
+                    </div>
+                    <hr>
+                   <!--  <strong>Declartion:</strong><br/>
+                    <p>We declare that this invoice shows the actual price of the goods describe and that all paticular are true and correct.</p> 
+                           <p>This is Computer Generated Tax Invoice.</p> 
+                  
+                    <img  src="{{ otherdata.code }}"  class="rounded" width="200px" height="200px"   /> -->
+                    <form class="businessquery" (ngSubmit)="submitquery(prdctadd)" #prdctadd="ngForm">
+
+                    <div class="form-group has-search">
+
+                      <ion-list>
+                        <ion-item>
+                          <ion-select placeholder="Order Status" name="orderstatus"  [ngModel]>
+                            <ion-select-option value="1">Order Placed</ion-select-option>
+                            <ion-select-option value="2">Out of Stock</ion-select-option>
+                            <ion-select-option value="3">Pending Payment</ion-select-option>
+                            <ion-select-option value="4">Payment Recived</ion-select-option>
+
+                            <ion-select-option value="5">Cancelled</ion-select-option>
+                            <ion-select-option value="6">Processed</ion-select-option>
+                            <ion-select-option value="7">Shipped</ion-select-option>
+
+                            <ion-select-option value="8">Delivered</ion-select-option>
+                            <ion-select-option value="9">Return Process</ion-select-option>
+                            <ion-select-option value="10">Exchanged</ion-select-option>
+                            <ion-select-option value="11">Refunded</ion-select-option>
+                            <ion-select-option value="12">Completed</ion-select-option>
+                            <ion-select-option value="13">Start Work</ion-select-option>
+
+                          </ion-select>
+                        </ion-item>
+                      </ion-list>
+
+
+                      <!-- <label>Select Status</label>
+                      <ion-item>
+                        <ion-label>Order Status</ion-label>
+                        <ion-select [(ngModel)]="orderstatus" interface="popover">
+                          <ion-select-option value="1">Order Placed</ion-select-option>
+                          <ion-select-option value="2">Out of Stock</ion-select-option>
+                          <ion-select-option value="3">Pending Payment</ion-select-option>
+                          <ion-select-option value="4">Payment Received</ion-select-option>
+                          <ion-select-option value="5">Cancelled</ion-select-option>
+                          <ion-select-option value="6">Processed</ion-select-option>
+                          <ion-select-option value="7">Shipped</ion-select-option>
+                          <ion-select-option value="8">Delivered</ion-select-option>
+                          <ion-select-option value="9">Return Process</ion-select-option>
+                          <ion-select-option value="10">Exchanged</ion-select-option>
+                          <ion-select-option value="11">Refunded</ion-select-option>
+                          <ion-select-option value="12">Completed</ion-select-option>
+                          <ion-select-option value="13">Start Work</ion-select-option>
+                        </ion-select>
+                      </ion-item>
+                       -->
+                    </div>
+
+                    <input type="submit" value="Update Status"  class="submit"/>
+                  
+                  </form>
+                  </div>
+                  
+                  
+      </div>
+  
+    <hr>
+  
+  </div>
+  </div>
+
+</div>
+     
+   <app-footer></app-footer>

@@ -1,0 +1,41 @@
+<app-subheader></app-subheader>
+<div class="mainbody"  >
+  <!-- *ngIf="auth == true" class="mainbody" (scroll)="getScrollPos($event)" -->
+  <div class="title">
+    <div class="tab " (click)="chats()">Customer</div>
+    <!-- <div class="tab " (click)="friends()">Friends</div> -->
+    <div class="tab " (click)="invite()">Invite</div>
+   <div class="tab active" (click)="invitepending()">Pending</div> 
+   <!--   <div class="tab" (click)="posts()">Posts</div>-->
+  </div>
+  <div class="shoplist"> 
+    <div class="homesec2 search">
+      <div class="form-group has-search searchfull"> <span class="fa fa-search form-control-feedback"></span>
+        <input type="text" class="form-control" placeholder="Search Name" (input)="searchfriend($event)">
+      </div>    
+    </div>
+    <ul class="contacts">
+      <li  *ngFor="let data of friendlist">
+        <div class="d-flex bd-highlight">
+          <div class="img_cont">
+          <img *ngIf="data.image" src="https://gbosss.com/assets/images/visitor/{{data.image}}" height="80px"
+            class="rounded-circle user_img" />
+          <img *ngIf="data.image==''" src="assets/images/demo.jpg" height="80px" class="rounded-circle user_img" />
+ <!-- <span class="online_icon"></span> -->
+          </div>
+          <div class="user_info">
+            <span>#{{ data.name.substring(0, 20) }}</span> 
+            <!-- <p>{{ data.name }}is online</p> -->
+          </div>
+          <!-- <div class="invite" ><input type="button" value="Invite Me"></div> -->
+        </div>
+      </li>
+ 
+      </ul>
+  </div>
+  
+</div>
+<app-footer></app-footer>
+
+
+

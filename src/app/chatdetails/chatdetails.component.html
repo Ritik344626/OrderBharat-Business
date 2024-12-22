@@ -1,0 +1,74 @@
+<div class="wrapper">
+  <!-- Sidebar  -->
+  <div class="overlay"></div>
+  <div id="content">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <div id="sidebarCollapse"  (click)="chats()"><i class="fa fa-arrow-left" aria-hidden="true"></i></div>
+        <div class="name text-left appsnametop">&nbsp;
+         
+          <div class="img_cont">
+          <img *ngIf="visitorfrienddata.image" src="https://gbosss.com/assets/images/visitor/{{visitorfrienddata.image}}" onError="this.src='assets/images/demo.jpg'" height="34px" width="34px" class="rounded-circle user_img" />
+        <img *ngIf="visitorfrienddata.image==''" src="assets/images/demo.jpg" height="80px" class="rounded-circle user_img" height="34px"  width="34px" />
+
+ <!-- <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img"> -->
+          
+          
+          </div>
+          <div class="user_info"> <span>@{{ visitorfrienddata.name.substring(0, 6)}}</span>
+            <!-- <p>{{ visitorfrienddata.name }} is online</p> -->
+          </div>
+        </div>
+        <ul class="homeheader">
+          <li>
+            <div class="dropdown show  dropleft">
+              <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+              </a>
+            
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" (click)="chatblock(visitorfrienddata.visitor_id)">Block</a>
+                <a class="dropdown-item" (click)="chatreport(visitorfrienddata.visitor_id)">Report</a>
+              </div>
+            </div>
+             </li>
+        </ul>       
+      </div>
+    </nav>
+  </div>
+</div>
+<div class="mainbody">
+  <div class="shoplist">
+    <div class="msg_card_body">
+
+	<ul>
+      <li *ngFor="let data of massagedata">
+      
+        <div class="d-flex justify-content-end mb-4" *ngIf="data.from_id==company_id">
+        <div class="msg_cotainer_send"> {{ data.massage}} <span class="msg_time_send">{{data.time *1000  }} </span> </div>
+        </div> 
+        
+        <div class="d-flex justify-content-start mb-4" *ngIf="data.from_id!=company_id">
+          <div class="msg_cotainer_send"> {{ data.massage}} <span class="msg_time_send">{{data.time *1000  }}</span> </div>
+          </div> 
+
+      </li>
+    </ul>
+	
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+
+  <form (ngSubmit)="addchatmsg(chatdetails)" #chatdetails="ngForm">
+
+  <div class="input-group">
+    <textarea name="chatmsg" ngModel aria-describedby="emailHelp" class="form-control type_msg" placeholder="Type your message..."></textarea>
+    <div class="input-group-append">
+      <button  type="submit" class="input-group-text send_btn"><i class="fa fa-location-arrow"></i></button>
+      </div>
+  
+  </div>
+</form>
+</div>

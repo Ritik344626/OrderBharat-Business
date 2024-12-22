@@ -1,0 +1,7 @@
+{
+  "name": "Orderbharat Business",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"  
+}

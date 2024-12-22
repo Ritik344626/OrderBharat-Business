@@ -1,0 +1,72 @@
+<app-subheader></app-subheader>
+<div class="mainbody" (scroll)="getScrollPos($event)">
+  <div class="businesscategorylist" style="margin-top: 50px">
+    <div class="search">
+      <div class="form-group has-search">
+        <select
+          class="form-control"
+          [(ngModel)]="state"
+          name="state"
+          (change)="stateid($event)"
+        >
+          <option value="" selected>Select State</option>
+          <option *ngFor="let data of stateslistdata" value="{{ data.id }}">
+            {{ data.name }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <ul class="notifaction" *ngIf="loaded">
+      <!--<li routerLink="/businessquery">-->
+      <li *ngFor="let data of allbusinessdetailsbycategory">
+        <div class="details">
+          <div class="title">
+            <a (click)="businessquery(data.business_details_id)">{{
+              data.name
+            }}</a>
+          </div>
+          <div class="address">Address : {{ data.address }}</div>
+        </div>
+        <div class="call">
+          <a href="tel:+91{{ data.phone }}"
+            ><i class="fa fa-phone" aria-hidden="true"></i
+          ></a>
+        </div>
+      </li>
+    </ul>
+    <ion-list *ngIf="!loaded">
+      <ion-item>
+        <ion-label>
+          <h3>
+            <ion-skeleton-text
+              [animated]="true"
+              style="width: 100%"
+            ></ion-skeleton-text>
+          </h3>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <h3>
+            <ion-skeleton-text
+              [animated]="true"
+              style="width: 100%"
+            ></ion-skeleton-text>
+          </h3>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <h3>
+            <ion-skeleton-text
+              [animated]="true"
+              style="width: 100%"
+            ></ion-skeleton-text>
+          </h3>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+</div>
+<app-footer></app-footer>

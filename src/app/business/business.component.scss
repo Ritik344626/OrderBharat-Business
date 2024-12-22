@@ -1,0 +1,83 @@
+.businesscategorylist {
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 80px;
+  overflow: hidden;
+}
+.businesscategorylist ul li {
+  display: flex;
+  border-bottom: 1px solid #999999;
+  padding: 5px 0px;
+}
+.businesscategorylist ul li .icon {
+  width: 14%;
+  background: #262b79;
+  color: #fff;
+  text-align: center;
+  margin: 0px 10px 0px 0px;
+  line-height: 44px;
+  font-size: 24px;
+}
+.businesscategorylist ul li .text {
+  width: 70%;
+  margin-top: 12px;
+}
+.businesscategorylist ul li h5 {
+  font-size: 16px;
+  margin-bottom: 2px;
+}
+.businesscategorylist ul li p {
+  font-size: 12px;
+  margin-bottom: 0px;
+}
+.businesscategorylist ul li .right .icon {
+  width: 14%;
+  color: #000;
+  text-align: center;
+  margin: 0px 10px 0px 0px;
+  line-height: 44px;
+  font-size: 24px;
+  background: inherit;
+  float: right;
+}
+.businessquery input[type="text"] {
+  margin-top: 15px;
+  padding: 5px 3%;
+  width: 100%;
+  border: #c6c6c6 1px solid;
+}
+.businessquery input[type="submit"] {
+  width: 100%;
+  background: #006633;
+  color: #ffffff;
+  margin-top: 20px;
+  border: 0px;
+  padding: 5px 0px;
+}
+
+.notifaction .details .address {
+  font-size: 12px;
+  color: #666666;
+}
+.notifaction .details {
+  width: 80%;
+}
+.call {
+  text-align: right;
+  float: right;
+  width: 16%;
+  font-size: 28px;
+  margin-top: 15px;
+  color: #006600;
+}
+
+.businesscategorylist ul li .text{
+  width: 88%;
+  margin-top: 12px;
+}
+.businesscategorylist ul li.right{
+  width: 10%;
+  text-align: right;
+  margin-top: -2px;
+  height: 20px;
+}

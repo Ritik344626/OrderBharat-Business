@@ -1,0 +1,99 @@
+<div class="wrapper">
+  <!-- Sidebar  -->
+  <!-- Page Content  -->
+  <div id="content">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <div class="name text-left">&nbsp; Order Bharat Business</div>
+      </div>
+    </nav>
+    <div class="mainbody step1">      
+        <form>
+          <h6>GST registered?</h6>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" value="1" name="gstin" (change)="chkgstin()"  [(ngModel)]="gstin" >
+            <label class="form-check-label" for="inlineCheckbox1">Yes</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" value="2" name="gstin" (change)="chkgstin()" checked [(ngModel)]="gstin">
+            <label class="form-check-label" for="inlineCheckbox2">No</label>
+          </div>
+
+          <div *ngIf="isreg" class="form-group">
+            <input
+              type="text"
+              name="gstnumber"             
+              class="form-control text-center"
+              id="inputEmail4"
+              placeholder="GSTIN Number"
+              [(ngModel)]="gstnumber"
+            />
+          </div>
+          <div *ngIf="isreg" class="form-group">
+            <label for="gstregtype">Gst Registration Type</label>
+            <select class="form-control" id="gstregtype" name="gstregtype"  [(ngModel)]="gstregtype">
+               <option value="" selected>----Select----</option>
+               <option value="Registered">Registered </option>
+               <option value="Unregistered">Unregistered </option>
+               <option value="Composition Scheme">Composition Scheme </option>
+               <option value="Input Service Distributor">Input Service Distributor </option>
+               <option value="E-Commerece Operator">E-Commerece Operator </option>
+             </select>
+             </div>
+             <div class="form-group">
+            <label for="exampleFormControlSelect1">Business Category</label>
+            <select class="form-control" id="businesscategory" name="businesscategory"  [(ngModel)]="businesscategory">
+              <option value="" selected>----Select Any----</option>
+              <option value="1">Kirana</option>
+              <option value="2">Beauty, Salon & Spa</option>
+              <option value="3">Doctors</option>
+              <option value="4">Services</option>
+              <option value="5">Food Order</option>
+              <option value="6">Apparel</option>
+              <option value="7">Electronics</option>
+              <option value="8">Financial</option>
+              <option value="9">Gift Shop</option>
+              <option value="10">Jewellery</option>
+              <option value="11">Education</option>
+              <option value="12">Computer</option>
+			  <option value="13">Tour & Travel</option>
+			  <option value="14">Fitness</option>
+			  <option value="15">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Business Type</label>
+            <select class="form-control" id="businesstype" name="businesstype"  [(ngModel)]="businesstype">
+              <option value="">Select Any</option>
+              <option value="1">Retailer</option>
+              <option value="2">Wholesaler</option>
+              <option value="3">Distributor</option>
+              <option value="4">Services</option>
+              <option value="5"> Manufacturer</option>
+              <option value="6">Other</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Top Business Category</label>
+            <select class="form-control" [(ngModel)]="city_id" name="city_id">
+              <option value="" selected>Select Top Category</option>
+              <option *ngFor="let data of topcategorylistdata" value="{{ data.business_info_category_id }}">
+                {{ data.name }}
+              </option>
+            </select>
+          
+          </div>
+          <div class="form-group">
+            <input type="text" name="reffer_id"  [(ngModel)]="reffer_id"  placeholder="Reffer Code" class="form-control" >
+          </div>
+          <div class="fullbutton">
+            <input type="submit" value="Continue"  (click)="submitquery()"/>
+          </div>
+        </form>
+     
+    </div>
+  </div>
+  <div class="overlay"></div>
+</div>

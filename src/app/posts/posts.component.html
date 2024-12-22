@@ -1,0 +1,76 @@
+<app-subheader></app-subheader>
+<div class="mainbody">
+  <div class="title">
+    <div class="tab " (click)="chats()">Customer</div>
+    <!-- <div class="tab " (click)="friends()">Friends</div> -->
+    <div class="tab " (click)="invite()">Invite</div>
+    <!-- <div class="tab" (click)="invitepending()">Pending</div> -->
+    <div class="tab active" (click)="posts()">Posts</div>
+  </div>
+  <div class="shoplist"> 
+  
+    <ul class="contacts">
+      <li>
+        <div class="d-flex bd-highlight">
+          <div class="img_cont">
+            <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img">
+           </div>
+          <div class="user_info">
+            <span>Khalid</span>
+            <p>Kalid is online</p>
+          </div>
+          <div class="invite">500+ <span>Friends</span></div>          
+        </div>
+        <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="post_img">
+        <p class="posttext">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+        <div class="buttombar">
+          <div class="box box1">
+            <i class="fa fa-thumbs-up" aria-hidden="true"></i> 897
+          </div>
+          <div class="box box3">
+            <i class="fa fa-thumbs-down" aria-hidden="true"></i> 56
+          </div>
+          <div class="box box2">
+            <i class="fa fa-share-alt" aria-hidden="true"></i> Share
+          </div>
+          <!-- <div class="box box3" (click)="editproduct()">
+            <i class="fa fa-reply" aria-hidden="true"></i> Reply
+          </div> -->
+        
+        </div>
+
+        <div class="d-flex post-footer">
+          <div class="img_cont">
+            <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img">
+           </div>
+          <div class="user_info"><input type="text"></div>
+          <div class="send"> <i class="fa fa-paper-plane" aria-hidden="true"></i></div>          
+        </div>
+
+      </li>
+      <li>
+        <div class="d-flex bd-highlight">
+          <div class="img_cont">
+            <img src="https://2.bp.blogspot.com/-8ytYF7cfPkQ/WkPe1-rtrcI/AAAAAAAAGqU/FGfTDVgkcIwmOTtjLka51vineFBExJuSACLcBGAs/s320/31.jpg" class="rounded-circle user_img">
+          
+          </div>
+          <div class="user_info">
+            <span>Taherah Big</span>
+            <p>Taherah left 7 mins ago</p>
+          </div>
+          <div class="invite">500+ <span>Friends</span></div>
+        </div>
+      </li>
+    
+      </ul>
+  </div>
+  
+</div>
+<div class="addcustomerhome">
+  <a (click)="postsadd()"><i class="fa fa-plus" aria-hidden="true"></i> Add Posts</a
+  >
+</div>
+<app-footer></app-footer>
+
+
+

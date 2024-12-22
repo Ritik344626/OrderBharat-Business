@@ -1,0 +1,53 @@
+<app-subheader></app-subheader>
+<div *ngIf="auth == true" class="mainbody">
+  <div class="businesscategorylist">
+    <ul *ngIf="loaded">
+      <li *ngFor="let data of businesscategory">
+        <!-- <div class="icon"><i class="fa fa-home" aria-hidden="true"></i></div>-->
+        <div class="text">
+          <h5>{{ data.name }}</h5>
+        </div>
+        <div class="right">
+          <a (click)="businessdetails(data.business_info_category_id)">
+            <div class="icon">
+              <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </div>
+          </a>
+        </div>
+      </li>
+    </ul>
+    <ion-list *ngIf="!loaded">
+      <ion-item>
+        <ion-label>
+          <h3>
+            <ion-skeleton-text
+              [animated]="true"
+              style="width: 100%"
+            ></ion-skeleton-text>
+          </h3>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <h3>
+            <ion-skeleton-text
+              [animated]="true"
+              style="width: 100%"
+            ></ion-skeleton-text>
+          </h3>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <h3>
+            <ion-skeleton-text
+              [animated]="true"
+              style="width: 100%"
+            ></ion-skeleton-text>
+          </h3>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+</div>
+<app-footer></app-footer>

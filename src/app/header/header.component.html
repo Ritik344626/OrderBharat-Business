@@ -1,0 +1,134 @@
+<div class="wrapper">
+  <!-- Sidebar  -->
+  <div class="overlay"></div>
+  <nav id="sidebar">
+    <div id="dismiss">
+      <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    </div>
+    <div class="sidebar-header"></div>
+    <ul class="list-unstyled components">
+      <p>Order Bharat Business</p>
+      <li class="active">
+        <a routerLink="/home"
+          ><i class="fa fa-home" aria-hidden="true"></i> Home</a
+        >
+      </li>
+      <!-- <li>
+        <a (click)="gotocart()"
+          ><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart</a
+        >
+      </li> -->
+      <li>
+        <a routerLink="/notification"
+          ><i class="fa fa-bell" aria-hidden="true"></i> Notification</a
+        >
+      </li>
+      <li>
+        <a routerLink="/orderlist"
+          ><i class="fa fa-file-o" aria-hidden="true"></i> Order List</a
+        >
+      </li>
+      <li>
+        <a routerLink="/bulkproductedit"
+          ><i class="fa fa-file-o" aria-hidden="true"></i> Bulk Product Edit</a
+        >
+      </li>
+      <li>
+        <a routerLink="/message"
+          ><i class="fa fa-envelope-o" aria-hidden="true"></i> Message</a
+        >
+      </li>
+
+      <!-- <li><a href="https://play.google.com/store/apps/details?id=app.gbosssbusinessnew.com"><i class="fa fa-star" aria-hidden="true"></i> Rate Us</a></li>
+      <li><a href="https://play.google.com/store/apps/details?id=app.gbosssbusinessnew.com"><i class="fa fa-share-alt" aria-hidden="true"></i> Share App</a></li> -->
+      <li>
+        <a routerLink="/appads"
+          ><i class="fa fa-bullhorn" aria-hidden="true"></i> Ads</a
+        >
+      </li>
+
+      <li>
+        <a routerLink="/pagecontact"
+          ><i class="fa fa-address-book-o" aria-hidden="true"></i> Contact Us</a
+        >
+      </li>
+      <li>
+        <a routerLink="/pageabout"
+          ><i class="fa fa-info-circle" aria-hidden="true"></i> About Us</a
+        >
+      </li>
+      <li>
+        <a routerLink="/pagefaq"
+          ><i class="fa fa-question-circle" aria-hidden="true"></i> FAQ</a
+        >
+      </li>
+      <li>
+        <a routerLink="/pagetac"
+          ><i class="fa fa-calendar-o" aria-hidden="true"></i> Terms and
+          Conditions</a
+        >
+      </li>
+      <li>
+        <a routerLink="/pageprivacy"
+          ><i class="fa fa-shield" aria-hidden="true"></i> Privacy Policy</a
+        >
+      </li>
+      <li>
+        <a routerLink="/refund"
+          ><i class="fa fa-cog" aria-hidden="true"></i> Refund Policy</a
+        >
+      </li>
+      <li>
+        <a id="present-alert"
+          ><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a
+        >
+        <ion-alert
+          trigger="present-alert"
+          header="Logout Alert!"
+          message="Are you sure, Do you want to Logout?"
+          [buttons]="alertButtons"
+        ></ion-alert>
+      </li>
+    </ul>
+    <!-- <ul class="list-unstyled CTAs">
+      <li>
+        <a href="" class="download">Logout</a>
+      </li>
+    </ul> -->
+  </nav>
+  <div id="content">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+
+        <div class="leftbar">
+        <div id="sidebarCollapse">
+          <i class="fa fa-align-justify" aria-hidden="true"></i>
+        </div>
+        <div class="name text-left appsnametop">
+          &nbsp; Order Bharat Business
+        </div>
+      </div>
+        <ul class="homeheader">
+           <li routerLink="/qrcodepageweb">
+            <i class="fa fa-desktop" aria-hidden="true"></i>
+          </li>
+
+          <!--  <li routerLink="/wallet">
+            <i class="fa fa-comments" aria-hidden="true"></i>
+            <a routerLink="/wallet"> 
+              <i class="fa fa-money" aria-hidden="true"></i>
+              <p>Wallet</p> 
+            </a> 
+          </li>-->
+          <li routerLink="/notifaction">
+            <i class="fa fa-bell" aria-hidden="true"></i>
+          </li>
+          <!-- <li (click)="gotocart()">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            <span style="color:r#fff;">{{ cartdata}}
+            </span> -->
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>

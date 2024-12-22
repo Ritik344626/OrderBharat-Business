@@ -1,0 +1,70 @@
+<!-- Page Content  -->
+<div id="content">
+  <div class="mainbody">
+    <div class="logo"><img src="assets/images/index/logo.png" width="169px" /></div>
+    <div class="indextop">
+      <img src="assets/images/index/set-business-layout-1a.png" />
+    </div>
+
+    <div class="section1">
+      <img src="assets/images/index/set-business-layout-1.png" />
+    </div>
+    <!-- <div class="indexsec1">
+        <img src="assets/images/logo.jpg" />
+        <p>Safe, Secure, & Reliable</p>
+      </div>
+
+      <div class="fullbutton">
+        <a routerLink="/mobile">Welcome to GBOSSS Mobile</a>
+      </div> -->
+    <div class="indexfrom">
+      <form (ngSubmit)="sendotp(verifymob)" #verifymob="ngForm">
+        <div class="">
+          <div class="d-flex mx-3">
+            <div class="form-group col-3">
+              <input
+                type="text"
+                class="prefix inputset1"
+                id="mobilePefix"
+                placeholder="+91"
+                disabled="disabled"
+              />
+            </div>
+            <div class="form-group col-9">
+              <input
+              type="number"
+              name="mobile"
+              ngModel
+              class="inputset2"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              placeholder="Mobile Number"
+              maxlength="10"
+             
+            />
+            </div>
+          </div>
+        </div>
+
+        <div class="fullbutton">
+          <input
+            type="submit"
+            [value]="otpLoaderStatus ? 'Loading...' : 'Login'"
+            class="fullbutton"
+          />
+        </div>
+      </form>
+      <div class="text-center">
+        <small class="warning"
+          >*We'll never share your mobile number with anyone else.</small
+        >
+      </div>
+    </div>
+
+    <div class="icon-section section4" >
+      <img src="/assets/images/index/set1a.jpg" alt="" >
+      <img src="/assets/images/index/set1b.jpg" alt="">
+      <img src="/assets/images/index/set1c.png" alt="">
+    </div>
+  </div>
+</div>

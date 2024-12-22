@@ -1,0 +1,42 @@
+.indexfrom {
+    padding: 25px 10px 10px 10px;
+   
+    border-radius: 10px;
+
+}
+
+.indexfrom .form-group {
+    margin-bottom: 5px;
+}
+
+.fullbutton {
+    margin-top: 0px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.logo {
+    width: 200px;
+    margin: 0 auto;
+    text-align: center;
+}
+.mainbody{
+  
+    background-image: url('../../assets/images/index/order-bharat-Business-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #3DC1E6;
+}
+
+.inputset2{
+    width: 100%;
+    padding: 7px 10px;
+      border: 0px; -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px; text-align: center;}
+
+.section1{width: 75%; margin: 0 auto;}
+.section1 img{width: 100%;}

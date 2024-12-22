@@ -1,0 +1,200 @@
+<app-subheader></app-subheader>
+<div *ngIf="auth == true" class="mainbody">
+
+  <div class="topset">
+    <div class="set1">
+    <div class="productprice">Product Price: <i class="fa fa-inr" aria-hidden="true"></i> {{ peoductprice }}</div>    
+    <div class="gstprice"> GST Price: <i class="fa fa-inr" aria-hidden="true"></i> {{ gstprice }}</div>
+</div>
+    <div class="set2">
+      <div class="total">Total: <i class="fa fa-inr" aria-hidden="true"></i>{{ totalamount  }}</div> 
+      <div class="total1"><input type="text" placeholder="Amount" value="{{ totalamount  }}" name="paidamount" [(ngModel)]="paidamount" />
+    <div class="save" (click)="customersale()">
+      <i class="fa fa-hdd-o" aria-hidden="true"></i> Checkout
+    </div>
+    </div>
+    </div>
+  </div>
+
+
+  <!-- <div class="topset">
+    <div class="total">
+      Total: <i class="fa fa-inr" aria-hidden="true"></i>{{ totalamount }}
+    </div>
+    <input type="text" placeholder="Amount" value="{{ totalamount }}" name="paidamount" [ngModel]="paidamount" />
+    <div class="save" (click)="customersale()">
+      <i class="fa fa-hdd-o" aria-hidden="true"></i> Checkout
+    </div>
+  </div> -->
+
+  <!--<a href="javascript:void(0);" (click)="customersale()" class="save"><i class="fa fa-hdd-o" aria-hidden="true"></i> Checkout</a>-->
+  <div class="customerlist customersale">
+    <div class="homesec2 search">
+      <!-- <div class="form-group has-search">
+        <span class="fa fa-search form-control-feedback"></span>
+        <input type="text" class="form-control" placeholder="Product Name" />
+      </div> -->
+
+      <div *ngIf="cus_dropdown_state == true" class="form-group has-search">
+        <select class="form-control"  (change)="storecusid($event)" name="customer_id" >
+          <option value="" selected>---- Select Customer ----</option>
+          <option  *ngFor="let data of customerdata" value="{{ data.customer_id }}" >
+            {{ data.customer_name }}
+          </option>
+        </select>
+      <br/>
+    <select class="form-control" (change)="setcheckouttype($event)" name="checkout_id">
+      <option value="" selected>-- Select type --</option>
+        <option value="1" >Sales</option>
+          <option value="2" >Order</option>
+     
+    </select>
+  </div>
+      <div *ngIf="cus_dropdown_state == false" class="form-group has-search">
+        <input
+          type="text"
+          readonly
+          class="form-control"
+          [ngModel]="customer_name"
+        />
+      </div>
+
+      <ul class="">
+        <li>
+          <!-- <div class="barcode" (click)="scanbarcode()">
+            <i class="fa fa-barcode" aria-hidden="true"></i>
+          </div> -->
+        </li>
+      </ul>
+    </div>
+
+    <ul>
+      <li *ngFor="let data of cartdata">
+        <div class="box1">
+          <h5>{{ data.name }}</h5>
+          <p>
+            <span class="saleprice"
+              ><i class="fa fa-inr" aria-hidden="true"></i
+              >{{ data.price }}</span
+            >
+            <span class="mrp">
+              <i class="fa fa-inr" aria-hidden="true"></i> {{ data.mrp_rate }}
+            </span>
+          </p>
+        </div>
+
+        <div class="box2" *ngIf="data.product_type==1">
+          <button
+            class="btn"
+            (click)="addtocart(data.productid, data.price, 1, 1)"
+          >
+            <i class="fa fa-minus" aria-hidden="true"></i>
+          </button>
+
+          <input
+            type="text"
+            class="form-control"
+            placeholder="0"
+            id="quantity{{ data.productid }}"
+            [ngModel]="data.qty"
+            (input)="addtocart(data.productid, data.price, 0, 2)"
+          />
+
+          <button
+            class="btn"
+            (click)="addtocart(data.productid, data.price, 2, 1)"
+          >
+            <i class="fa fa-plus" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="box2 bookingnewdate" *ngIf="data.product_type==2">Booking Date: <br/>{{data.booking_date }}</div>
+        <div class="box3">
+          <button (click)="deleteitem(data.productid)" class="btn btn-danger">
+            <i class="fa fa-close" aria-hidden="true"></i>
+          </button>
+        </div>
+      </li>
+      <!-- <li>
+      <div class="box1">
+        <h5>Harpic Power Plus Disinfectant</h5>
+      </div>
+      <div class="box2">
+        <h5><i class="fa fa-inr" aria-hidden="true"></i>255</h5>
+        <p>MRP Amo.</p>
+      </div>
+      <div class="box2">
+        <h5><i class="fa fa-inr" aria-hidden="true"></i> 199</h5>
+        <p>Sale Amo.</p>
+      </div>
+      <div class="box2">
+        <input type="text" placeholder="2" class="form-control">
+      </div>
+    </li>
+    <li>
+      <div class="box1">
+        <h5>Harpic Power Plus Disinfectant</h5>
+      </div>
+      <div class="box2">
+        <h5><i class="fa fa-inr" aria-hidden="true"></i>255</h5>
+        <p>MRP Amo.</p>
+      </div>
+      <div class="box2">
+        <h5><i class="fa fa-inr" aria-hidden="true"></i> 199</h5>
+        <p>Sale Amo.</p>
+      </div>
+      <div class="box2">
+        <input type="text" placeholder="2" class="form-control">
+      </div>
+    </li>
+    <li>
+      <div class="box1">
+        <h5>Harpic Power Plus Disinfectant</h5>
+      </div>
+      <div class="box2">
+        <h5><i class="fa fa-inr" aria-hidden="true"></i>255</h5>
+        <p>MRP Amo.</p>
+      </div>
+      <div class="box2">
+        <h5><i class="fa fa-inr" aria-hidden="true"></i> 199</h5>
+        <p>Sale Amo.</p>
+      </div>
+      <div class="box2">
+        <input type="text" placeholder="2" class="form-control">
+      </div>
+    </li>
+    <li>
+      <div class="box1">
+        <h5>Harpic Power Plus Disinfectant</h5>
+      </div>
+      <div class="box2">
+        <h5><i class="fa fa-inr" aria-hidden="true"></i>255</h5>
+        <p>MRP Amo.</p>
+      </div>
+      <div class="box2">
+        <h5><i class="fa fa-inr" aria-hidden="true"></i> 199</h5>
+        <p>Sale Amo.</p>
+      </div>
+      <div class="box2">
+        <input type="text" placeholder="2" class="form-control">
+      </div>
+    </li>
+    <li>
+      <div class="box1">
+        <h5>Harpic Power Plus Disinfectant</h5>
+      </div>
+      <div class="box2">
+        <h5><i class="fa fa-inr" aria-hidden="true"></i>255</h5>
+        <p>MRP Amo.</p>
+      </div>
+      <div class="box2">
+        <h5><i class="fa fa-inr" aria-hidden="true"></i> 199</h5>
+        <p>Sale Amo.</p>
+      </div>
+      <div class="box2">
+        <input type="text" placeholder="2" class="form-control">
+      </div>
+    </li> -->
+    </ul>
+  </div>
+</div>
+<app-footer></app-footer>

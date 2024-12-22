@@ -1,0 +1,62 @@
+<app-header></app-header>
+<div class="mainbody">
+  <div class="image-container" id="image-container">
+    <img [src]="backgroundImage" alt="Background Image" class="background-image">
+    <img [src]="overlayImage" alt="Overlay Image" class="overlay-image">
+    <img [src]="logoImage" alt="Logo Image" class="logo"
+         [ngStyle]="{'top': logo.top + '%', 'left': logo.left + '%', 'width': logo.width + 'px', 'height': logo.height + 'px'}"
+        >
+    <!--
+     (mousedown)="startDragging($event, logo)"
+         (touchstart)="startDragging($event, logo)"
+         (mousemove)="drag($event)"
+         (touchmove)="drag($event)"
+         (mouseup)="stopDragging()"
+         (touchend)="stopDragging()"    
+    <div class="overlay-text"
+         [ngStyle]="{'top': newText.top + '%', 'left': newText.left + '%', 'font-size': newText.size + 'px', 'color': newText.color}"
+         (mousedown)="startDragging($event, newText)"
+         (touchstart)="startDragging($event, newText)"
+         (mousemove)="drag($event)"
+         (touchmove)="drag($event)"
+         (mouseup)="stopDragging()"
+         (touchend)="stopDragging()" [innerHtml]="newText.content">
+     
+    </div> -->
+    <div class="overlay-text" id="overlay-text"
+    [innerHtml]="newText.content">
+
+</div>
+    <div *ngFor="let text of texts" class="overlay-text"
+         [ngStyle]="{'top': text.top + 'px', 'left': text.left + 'px', 'font-size': text.size + 'px', 'color': text.color}"
+         (mousedown)="startDragging($event, text)"
+         (touchstart)="startDragging($event, text)"
+         (mousemove)="drag($event)"
+         (touchmove)="drag($event)"
+         (mouseup)="stopDragging()"
+         (touchend)="stopDragging()">
+      {{ text.content }}
+    </div>
+  </div>
+
+ 
+  <ion-button expand="full" (click)="reloadAndShare()">Save</ion-button>
+<!-- Controls for changing text properties -->
+<!-- <div class="controls" *ngIf="currentText">
+  <label>
+    Color:
+    <input type="color" (input)="changeColor($event)" />
+  </label>
+  <label>
+    Font Size:
+    <input type="number" min="10" max="100" (input)="changeFontSize($event)" />
+  </label>
+</div> -->
+
+
+
+</div>
+
+
+
+<app-footer></app-footer>

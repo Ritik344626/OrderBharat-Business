@@ -1,0 +1,54 @@
+<app-subheader></app-subheader> 
+<div class="mainbody">
+  <div class="topset">
+    <h5>{{ customerdata.customer_name }}</h5>
+
+    <div class="">
+      <form (ngSubmit)="addyougot(yougot)" #yougot="ngForm">
+        <div class="set1">
+
+        <div class="form-group">
+          <input
+            type="text"
+            name="amount"
+            class="form-control"
+            id="amount"
+            ngModel
+            aria-describedby="emailHelp"
+            placeholder="Amount"
+          />
+        </div> 
+        
+        <div class="form-group">
+          <select class="form-control" [(ngModel)]="yougottype" name="type">
+            <option value="0" selected>----Select----</option>
+            <option value="Cash">Cash</option>
+            <option value="Bank">Bank</option>   
+            <option value="Online">Online</option>        
+          </select>
+        </div>  
+      </div> 
+
+        <div class="form-group">
+          <input
+            type="text"
+            name="note"
+            class="form-control"
+            id="note"
+            ngModel
+            aria-describedby="emailHelp"
+            placeholder="Note"
+          />
+        </div>
+  
+      
+        <div class="fullwidthsubmit">
+          <input type="submit" value="You Got" class="submit" /><!--
+          <input type="submit" value="Save &amp; Sale" class="savesale" />-->
+        </div>
+      </form>
+    </div>
+  </div>
+ 
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,153 @@
+<div id="content">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid ">
+      <div class="leftside">
+      <div id="sidebarCollapse"  (click)="home()">
+        <i class="fa fa-arrow-left" aria-hidden="true"></i></div>
+      <div class="name text-left appsnametop">&nbsp; offer</div>
+    </div>
+    </div>
+  </nav>
+</div>
+
+<div class="mainbox">
+<ion-content [fullscreen]="true">
+ 
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Status</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list style="min-height: 95vh;">
+    <h6 *ngIf="ismystatus">My Status</h6>
+    <ion-item *ngIf="ismystatus">
+      <ion-thumbnail slot="start">
+      <img src="https://gbosss.com/assets/order_bharat/offer/{{myOfferUrl}}" alt="" class="rounded-circle" style="padding: 3px;
+      border-style: dashed;
+      border-width: 2px;
+      border-color: #097500;">
+    </ion-thumbnail>
+    <ion-label>Demo Text</ion-label>
+    </ion-item>
+
+    <h6>Recent Updates</h6>
+    <ion-item *ngFor="let imageUrl of imageArray; let i = index" (click)="openStatusModal(true,imageArray,i)" style="margin-bottom: 10px;">
+      <ion-thumbnail slot="start" >
+        <img [src]="imageUrl" alt="Random Image" class="rounded-circle" style="padding: 3px;
+        border-style: dashed;
+        border-width: 2px;
+        border-color: #097500;">
+      </ion-thumbnail>
+      <ion-label>Demo Text <br/> <span style="font-size: 12px; font-style: italic; color: gray;">4.50 PM</span></ion-label>
+    </ion-item>
+  </ion-list>
+
+
+  <ion-modal [isOpen]="isModalStatus">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar style="height: 60px; background-color: white;">
+          <div style="display: flex; flex-direction: row;">
+            <img [src]="selectedUser" alt="" class="header-image rounded-circle" >
+            <ion-title style="max-width: 70vw;">{{selectedUser}}</ion-title>
+          </div>
+          
+
+          <ion-buttons slot="end">
+            <ion-button (click)="openStatusModal(false,'',0)"><ion-icon name="close"></ion-icon></ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <swiper-container #swiper (swiperslidechange)="slideChange()"
+         [speed]="500" [autoplay]="{delay:3000}" 
+          slides-per-view="1" >
+          <swiper-slide *ngFor="let imageUrl of selectedStatus">
+            <img [src]="imageUrl">
+          </swiper-slide>
+        </swiper-container>
+       
+      </ion-content>
+
+
+      <div class="product-details">
+
+        <div class="imagebox">
+          <img src="https://picsum.photos/200/300">
+        </div>
+        <div class="product-details-text">
+          <h4>What is Lorem Ipsum?</h4>
+          <p>It is a long established fact that a reader will be distracted by </p>
+
+          <div class="section1">
+          <div class="pricebox">Price: <span class="offer"> &#8377; 1000</span> <span class="mrp"> &#8377; 2000</span>   </div>
+            
+          <div class="ordernow"> <a href="">Order now</a> </div>
+        </div>
+        </div> 
+
+
+      </div>
+
+
+      <ion-footer *ngIf="visiableProgress">
+              <ion-progress-bar  [value]="statusProgress" style="height: 5px;"></ion-progress-bar>
+      </ion-footer>
+    <app-footer></app-footer>    
+    </ng-template>
+  </ion-modal>
+
+  <ion-modal class="custom-modal" [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Attach Doc</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="setOpen(false)">Close</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-card>
+          <ion-card-content>
+            <div class="image-preview">
+              <img src="{{selectedFile.url}}" alt="">
+            </div>
+            <form (ngSubmit)="onSubmit()">
+              <label for="fileInput" class="custom-file-upload">
+                <span>Select File</span>
+              </label>
+              <input
+                type="file"
+                id="fileInput"
+                (change)="onFileSelected($event)"
+                accept=".jpg, .png"
+                style="display: none"
+              />
+              <br />
+              <button type="submit" class="btn btn-success">
+                Upload File
+              </button>
+            </form>
+          </ion-card-content>
+        </ion-card>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+  <div class="buttombar">
+    <!-- <div class="box box1"> -->
+    <!-- <i class="fa fa-plus" aria-hidden="true"></i>  -->
+    <button class="box box1" (click)="setOpen(true)">+</button>
+    <!-- </div> -->
+  </div>
+
+</ion-content>
+</div>
+<ion-footer>
+  <app-footer></app-footer>
+</ion-footer>
+
+
+

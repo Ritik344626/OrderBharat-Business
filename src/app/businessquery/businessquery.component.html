@@ -1,0 +1,18 @@
+<app-subheader></app-subheader>
+
+<div class="mainbody">
+  <div class="businesscategorylist">
+    <form class="businessquery">
+      <textarea
+        rows="4"
+        name="name"
+        [(ngModel)]="querymsg"
+        placeholder="Message" class="form-control"
+      ></textarea>
+
+      <input type="button" (click)="submitquery()" value="Submit" class="submit" />
+    </form>
+  </div>
+</div>
+
+<app-footer></app-footer>

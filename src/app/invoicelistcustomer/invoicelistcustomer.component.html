@@ -1,0 +1,56 @@
+<app-subheader></app-subheader>
+      <div class="mainbody">
+        <!-- <div class="topset">
+          <h5>{{ customerdata.customer_name }} <i class="fa fa-pencil" aria-hidden="true" (click)="editcustomer(customerdata.customer_id)"></i> </h5>
+         
+       
+        </div> -->
+        <div class="customerlist">
+          <div class="homesec2 search">
+            <div class="form-group has-search searchfull"> <span class="fa fa-search form-control-feedback"></span>
+              <input type="text" class="form-control" placeholder="Invoice Number" (input)="searchinvoice($event)">
+            </div>
+            <ul>
+            </ul>
+          </div>
+          <ul class="head">
+            <li>
+              <div class="box1">                
+                <h5>Invoice</h5>
+              </div>
+              <div class="box2">
+                <h5>Inv.</h5>
+              </div>
+              <div class="box2 green">
+                <h5>Payment</h5>
+              </div>
+              <div class="box2 red">
+                <h5>Due</h5>
+              </div>           
+            </li>
+          </ul>
+          <ul>
+            <li *ngFor="let data of salesdata" >
+              <div class="box1">
+                <h5  (click)="viewinvoice(data.sales_id)">{{ data.reference_no }}</h5>
+                <p>{{ data.date }}</p>
+              </div>
+              <div class="box2">
+                <h5>{{ data.total}}</h5>
+                <!-- <p>Inv. Amo.</p> -->
+              </div>
+              <div class="box2 green">
+                <h5>{{ data.paid}}</h5>
+                <!-- <p>Payment</p> -->
+              </div>
+              <div class="box2 red">
+                <h5>{{ data.total -  data.paid}}</h5>
+                <!-- <p>Due</p> -->
+              </div>
+            </li>
+          
+          </ul>
+        </div>
+      </div>
+     
+   <app-footer></app-footer>

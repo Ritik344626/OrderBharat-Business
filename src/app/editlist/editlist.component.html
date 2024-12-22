@@ -1,0 +1,303 @@
+<app-subheader></app-subheader>
+<div class="mainbody">
+  <div class="profiletop d-flex justify-content-center">
+    <div class="card p-2">
+      <h6>Personal Info</h6>
+      <ul class="info">
+        <li>
+          <div class="box box1">
+            <i class="fa fa-user" aria-hidden="true"></i>
+          </div>
+          <div class="box box2">
+            <p class="set1">Business Name</p>
+            <p class="set2">{{ businessdetails.name }}</p>
+          </div>
+          <div class="box box3" routerLink="/editbusinessname">
+            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+          </div>
+        </li>
+        <li>
+          <div class="box box1">
+            <i class="fa fa-phone" aria-hidden="true"></i>
+          </div>
+          <div class="box box2">
+            <p class="set1">Mobile Number</p>
+            <p class="set2">{{ businessdetails.phone }}</p>
+          </div>
+          <!-- <div class="box box3" routerLink="/editphone"><i class="fa fa-arrow-right" aria-hidden="true"></i></div> -->
+        </li>
+        <li>
+          <div class="box box1">
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+          </div>
+          <div class="box box2">
+            <p class="set1">E-mail</p>
+            <p class="set2">{{ businessdetails.email }}</p>
+          </div>
+          <!-- <div class="box box3" routerLink="/editemail"><i class="fa fa-arrow-right" aria-hidden="true"></i></div> -->
+        </li>
+
+        <!-- <li>
+          <div class="box box1"><i class="fa fa-lock" aria-hidden="true"></i></div>
+          <div class="box box2">
+            <p class="set1">Password</p>
+            <p class="set2">***</p>
+          </div>
+          <div class="box box3" routerLink="/editpassword"><i class="fa fa-arrow-right" aria-hidden="true"></i></div>
+        </li> -->
+      </ul>
+      <h6>Business Info</h6>
+      <ul class="info">
+        <li>
+          <div class="box box1">
+            <i class="fa fa-globe" aria-hidden="true"></i>
+          </div>
+          <div class="box box2">
+            <p class="set1">Street (Optional)</p>
+            <p class="set2">{{ businessdetails.street }}</p>
+          </div>
+          <div class="box box3" routerLink="/editstreet">
+            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+          </div>
+        </li>
+        <li>
+          <div class="box box1">
+            <i class="fa fa-flag" aria-hidden="true"></i>
+          </div>
+          <div class="box box2">
+            <p class="set1">Business Type</p>
+            <p class="set2">{{ businessdetails.mobile_business_type }}</p>
+          </div>
+          <div class="box box3" routerLink="/businesstype">
+            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+          </div>
+        </li>
+        <li>
+          <div class="box box1">
+            <i class="fa fa-tag" aria-hidden="true"></i>
+          </div>
+          <div class="box box2">
+            <p class="set1">Business Category</p>
+
+            <p
+              class="set2"
+              *ngIf="businessdetails.mobile_business_category == 1"
+            >
+              Kirana
+            </p>
+            <p
+              class="set2"
+              *ngIf="businessdetails.mobile_business_category == 2"
+            >
+              Beauty, Salon & Spa
+            </p>
+            <p
+              class="set2"
+              *ngIf="businessdetails.mobile_business_category == 3"
+            >
+              Doctors
+            </p>
+            <p
+              class="set2"
+              *ngIf="businessdetails.mobile_business_category == 4"
+            >
+              Services
+            </p>
+            <p
+              class="set2"
+              *ngIf="businessdetails.mobile_business_category == 5"
+            >
+              Food Order
+            </p>
+            <p
+              class="set2"
+              *ngIf="businessdetails.mobile_business_category == 6"
+            >
+              Apparel
+            </p>
+            <p
+              class="set2"
+              *ngIf="businessdetails.mobile_business_category == 7"
+            >
+              Electronics
+            </p>
+            <p
+              class="set2"
+              *ngIf="businessdetails.mobile_business_category == 8"
+            >
+              Financial
+            </p>
+            <p
+              class="set2"
+              *ngIf="businessdetails.mobile_business_category == 9"
+            >
+              Gift Shop
+            </p>
+            <p
+              class="set2"
+              *ngIf="businessdetails.mobile_business_category == 10"
+            >
+              Jewellery
+            </p>
+            <p
+              class="set2"
+              *ngIf="businessdetails.mobile_business_category == 11"
+            >
+              Education
+            </p>
+            <p
+              class="set2"
+              *ngIf="businessdetails.mobile_business_category == 12"
+            >
+              Computer
+            </p>
+            <p
+              class="set2"
+              *ngIf="businessdetails.mobile_business_category == 13"
+            >
+              Tour & Travel
+            </p>
+            <p
+              class="set2"
+              *ngIf="businessdetails.mobile_business_category == 14"
+            >
+              Fitness
+            </p>
+            <p
+              class="set2"
+              *ngIf="businessdetails.mobile_business_category == 15"
+            >
+              Other
+            </p>
+          </div>
+          <div class="box box3" routerLink="/businesscategory">
+            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+          </div>
+        </li>
+        <li>
+          <div class="box box1">
+            <i class="fa fa-book" aria-hidden="true"></i>
+          </div>
+          <div class="box box2">
+            <p class="set1">Short Info</p>
+            <p class="set2">{{ businessdetails.mobile_shortinfo }}</p>
+          </div>
+          <div class="box box3" routerLink="/editshortinfo">
+            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+          </div>
+        </li>
+        <li>
+          <div class="box box1">
+            <i class="fa fa-file" aria-hidden="true"></i>
+          </div>
+          <div class="box box2">
+            <p class="set1">Terms and Conditions</p>
+            <p class="set2">{{ businessdetails.mobile_terms }}</p>
+          </div>
+          <div class="box box3" routerLink="/edittac">
+            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+          </div>
+        </li>
+
+        <li>
+          <div class="box box1">
+            <i class="fa fa-file" aria-hidden="true"></i>
+          </div>
+          <div class="box box2">
+            <p class="set1">Privacy policy</p>
+            <p class="set2">{{ businessdetails.mobile_privacy }}</p>
+          </div>
+          <div class="box box3" routerLink="/editprivacy">
+            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+          </div>
+        </li>
+
+        <li>
+          <div class="box box1">
+            <i class="fa fa-file" aria-hidden="true"></i>
+          </div>
+          <div class="box box2">
+            <p class="set1">Return & Refund</p>
+            <p class="set2">{{ businessdetails.mobile_refund  }}</p>
+          </div>
+          <div class="box box3" routerLink="/editrefund">
+            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+          </div>
+        </li>
+
+        <li>
+          <div class="box box1">
+            <i class="fa fa-file" aria-hidden="true"></i>
+          </div>
+          <div class="box box2">
+            <p class="set1">Contact</p>
+            <p class="set2">{{ businessdetails.mobile_contact  }}</p>
+          </div>
+          <div class="box box3" routerLink="/editcontact">
+            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+          </div>
+        </li>
+
+
+        
+
+        <li>
+          <div class="box box1">
+            <i class="fa fa-file-text" aria-hidden="true"></i>
+          </div>
+          <div class="box box2">
+            <p class="set1">Delivery List</p>
+            <p class="set2">{{ businessdetails.mobile_delivery }}</p>
+          </div>
+          <div class="box box3" routerLink="/editdelivery">
+            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+          </div>
+        </li>
+      </ul>
+
+      <h6>Financial Info</h6>
+      <ul class="info">
+        <li>
+          <div class="box box1">
+            <i class="fa fa-globe" aria-hidden="true"></i>
+          </div>
+          <div class="box box2">
+            <p class="set1">GSTIN</p>
+            <p class="set2">{{ businessdetails.gstin }}</p>
+          </div>
+          <div class="box box3" routerLink="/editgst">
+            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+          </div>
+        </li>
+        <li>
+          <div class="box box1">
+            <i class="fa fa-flag" aria-hidden="true"></i>
+          </div>
+          <div class="box box2">
+            <p class="set1">Bank Account</p>
+            <p class="set2" *ngIf="bankdetails.account_no">
+              {{ bankdetails.account_no }}
+            </p>
+          </div>
+          <div class="box box3" routerLink="/editbank">
+            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+          </div>
+        </li>
+        <li>
+          <div class="box box1">
+            <i class="fa fa-flag" aria-hidden="true"></i>
+          </div>
+          <div class="box box2">
+            <p class="set1">Upi Id</p>
+            <p class="set2">{{ businessdetails.upi_id }}</p>
+          </div>
+          <div class="box box3" routerLink="/editupiid">
+            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

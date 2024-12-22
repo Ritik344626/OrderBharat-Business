@@ -1,0 +1,123 @@
+<app-subheader></app-subheader>
+<div class="wrapper">
+  <!-- Page Content  -->
+  <div class="mainbody" (scroll)="getScrollPos($event)">
+    <div class="topset">
+      <div class="hometopbox">
+        <div class="sectionbuttom">
+          <div class="box">
+            <h4>{{ otherdata.productcount }}</h4>
+            <p>Total Products</p>
+          </div>
+          <div class="box">
+            <h4>{{ otherdata.stockcount }}</h4>
+            <p>Available Stock</p>
+          </div>
+        </div>
+      </div>
+      <!--<div class="homesec2">
+        <div class="form-group has-search"> <span class="fa fa-search form-control-feedback"></span>
+          <input type="text" class="form-control" placeholder="Product Name" />
+        </div>
+        <ul>
+          <li><i class="fa fa-filter" aria-hidden="true"></i></li>
+        </ul>
+      </div>-->
+      <div class="homesec2 search w-100">
+        <div class="form-group has-search">
+          <span class="fa fa-search form-control-feedback"></span>
+          <input
+            type="text"
+            class="form-control"
+            (input)="searchproduct($event)"
+            placeholder="Product Name"
+          />
+        </div>
+        <ul>
+          <!-- <li><i class="fa fa-file-pdf-o" aria-hidden="true"></i></li>-->
+           <li><i class="fa fa-filter" aria-hidden="true"></i></li>
+        </ul>
+      </div>
+    </div>
+    <div class="contactslist">
+      <ul>
+        <li *ngFor="let data of products; let i = index">
+          <div class="text" *ngIf="data.producttype==1">   <h5 (click)="productview(data.product_id)">{{ data.name }}</h5>    <p>&#8377; {{ data.price }} - Qty. {{ data.quantity }}</p> </div>
+          
+          <div class="text box2" *ngIf="data.producttype==2">   <h5 (click)="productview(data.product_id)">{{ data.name }}</h5>    <p>&#8377; {{ data.price }} - Qty. {{ data.quantity }}</p> </div>
+         
+          <div class="right rightproduct" *ngIf="data.producttype==1">
+
+            <input
+              type="text"
+              class="form-control"
+              placeholder="0"
+              id="quantity{{ data.product_id }}"
+              [ngModel]="0"
+              (input)="addtocart(data.product_id, data.price, 0, 2)"
+            />
+
+            <!-- <button
+              class="btn"
+              (click)="addtocart(data.product_id, data.price, 1, 1)"
+            >
+              <i class="fa fa-minus" aria-hidden="true"></i>
+            </button> -->
+            <input
+              type="text"
+              class="form-control"
+              placeholder="0"
+              id="quantity{{ data.product_id }}"
+              [ngModel]="0"
+              (input)="addtocart(data.product_id, data.price, 0, 2)"
+            />
+            <!-- <button
+              class="btn"
+              (click)="addtocart(data.product_id, data.price, 2, 1)"
+            >
+              <i class="fa fa-plus" aria-hidden="true"></i>
+            </button> -->
+          </div>
+
+          <div class="" *ngIf="data.producttype==2">
+            <form>
+              <div  class="bookingbox">
+                <input type="date"  class="form-control bookingdate" name="date" [(ngModel)]="bdate[i]" >
+                
+                <input type="hidden" name="newproduct_id"   id="newproduct_id"  value="{{ data.product_id }}" class="form-control">
+            <input type="submit" (click)="addbookingdate(data.product_id,i)" value="Booking"  class="booking"/>
+            </div>
+          </form>
+          </div>
+
+
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer">
+    <ul>
+      <li>
+        <i class="fa fa-home" aria-hidden="true"></i>
+        <p>Home</p>
+      </li>
+      <li>
+        <i class="fa fa-address-book" aria-hidden="true"></i>
+        <p>Customers</p>
+      </li>
+      <li class="active">
+        <i class="fa fa-cube" aria-hidden="true"></i>
+        <p>Products</p>
+      </li>
+      <li>
+        <i class="fa fa-gift" aria-hidden="true"></i>
+        <p>Order</p>
+      </li>
+      <li>
+        <i class="fa fa-truck" aria-hidden="true"></i>
+        <p>Delivery</p>
+      </li>
+    </ul>
+  </div>
+</div>
+<app-footer></app-footer>

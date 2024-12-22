@@ -1,0 +1,37 @@
+.customerlist li .box2 {
+    width: 40%;
+    text-align: right;
+    display: flex;
+    height: 40px;
+}
+.customerlist li .box1{padding: 0px; margin-bottom: 0px;}
+.customerlist li .box2 input{margin: 0px;}
+.customerlist li .box1 {width: 48%;}
+.box1 p span.saleprice{ color: #097500; margin-right: 5px;}
+.box1 p span.mrp{color: #750000; margin-right: 5px; text-decoration: line-through;}
+// .topset{display: flex;}
+.topset .total{width: 32%;}
+.topset input { width: 35%; font-size: 14px;  text-align: center;}
+.checkout {    
+    width: 40%;
+    background: #ffffff;
+    padding-top: 3px;
+}
+
+.topset .save {
+     font-size: 14px;
+    color: #fff;
+    text-align: center;
+}
+
+.topset .set1,.topset .set2{width: 100%;}
+.topset .set1{display: flex; margin-bottom: 5px;}
+.topset .set1 .productprice,.topset .set1 .gstprice{width: 50%;}
+.topset .set2{display: flex;}
+
+.topset .set2 .total{width: 40%;}
+.topset .set2 .total1{width: 60%;}
+
+.topset{padding-bottom: 10px; border-bottom: 1px solid #8e8e8e;}
+.customersale{margin-top: 148px !important;}
+.bookingnewdate{line-height: 25px;}

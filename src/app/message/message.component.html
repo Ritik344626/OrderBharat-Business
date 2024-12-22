@@ -1,0 +1,18 @@
+<app-subheader></app-subheader>
+<div class="mainbody">
+   <div class="customerlist customersale">
+
+    <ul>
+      <li  *ngFor="let data of businessquery">
+        <p> Name : {{ data.name}} <br/>
+          Eamil : {{ data.email}} <br/>
+          Phone :  <a aria-hidden="true" href="tel:+91{{ data.phone }}">{{ data.phone}}</a> <br/>
+          Details : {{ data.decs.substring(0, 100) }} <br/> 
+          <span>Date : {{data.date * 1000 }}</span> </p>  
+
+      </li>
+    </ul>
+  </div>
+</div>
+
+<app-footer></app-footer>

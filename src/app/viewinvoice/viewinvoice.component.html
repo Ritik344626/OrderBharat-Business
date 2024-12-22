@@ -1,0 +1,117 @@
+<app-subheader></app-subheader>
+<div class="mainbody">
+  <div id="invoice-POS" *ngFor="let data of salesdata">
+    <div id="top">
+      <div class="logo"></div>
+      <div class="info">
+             <h6>Sales Invoice</h6>
+             ------------------------------
+              <div style="text-align:left">
+                <h5>{{ data.biller_company }} </h5>                      
+                {{ data.biller_address}}
+                  <br>
+                  {{ data.biller_city}},
+                  {{ data.biller_state}},
+                  {{ data.biller_country}}
+                  <br>  <br>
+                 <strong> Mobile: </strong>{{ data.biller_mobile}}
+                  <br>
+                  <strong>E-mail: </strong>{{ data.biller_email}}
+                  <br>
+                  <strong>GSTIN/UIN: </strong>{{ data.biller_gstid}}
+                  </div>
+                  <hr/>
+                  <div id="mid">
+                    <div class="info">
+                    <h5>Billing Address</h5>
+                    ------------------------------
+                              <h5>{{ data.customer_name }} </h5>
+                              {{ data.customer_address}}
+                          <br>
+                          {{ data.customer_city}},{{data.customer_state}}-{{ data.customer_postal_code}} 
+                          <br>  <br>
+                         <strong>Mobile:</strong> {{ data.customer_mobile}}
+                          <br>
+                          <strong>E-mail:</strong>{{ data.customer_email}}
+                          <br>
+                          <strong>GSTIN/UIN :</strong> {{ data.customer_gstid}}
+                           
+                      
+                    </div>
+                  </div>          
+                  ------------------------------
+                  <p>Invoice Number: <strong>{{ data.invoice_no }}</strong></p>
+                  
+                  <p>Date:  <strong>{{ data.date }} </strong></p>
+        
+                  <div id="bot">
+                    <div id="table">
+                      <table width="100%" class="table">
+                        <tr>
+                          <th>Item</th>
+                          <th>Qty</th>
+                          <th>Sub Total</th>
+                        </tr>
+                         
+                        <tr class="service"  *ngFor="let data1 of items">
+                          <td>{{ data1.name}}
+                            <p *ngIf="data1.description!=='0'">Booking date: {{ data1.description }}</p>
+                          </td>
+                          <td>{{ data1.quantity}}</td>
+                          <td>{{ data1.gross_total}}</td>
+                        </tr>
+
+                        
+                        <tr class="total" *ngIf="data.biller_state_id == data.customer_state_id">
+                          <td colspan="2" align="right">CGST</td>
+                          <td>{{ data.tax_value / 2}}</td>
+                        </tr>
+                        <tr class="total"  *ngIf="data.biller_state_id == data.customer_state_id">
+                          <td colspan="2" align="right">SGST</td>
+                          <td>{{ data.tax_value / 2}}</td>
+                        </tr>
+
+                        <tr class="total"  *ngIf="data.biller_state_id != data.customer_state_id">
+                          <td colspan="2" align="right">IGST</td>
+                          <td>{{ data.tax_value}}</td>
+                        </tr>
+                        
+                        <tr class="total">
+                          <td colspan="2" align="right">Total</td>
+                          <td>{{ data.total}}</td>
+                        </tr>
+                        <tr class="total">
+                          <td colspan="2" align="right">Paid</td>
+                          <td>{{ data.paid}}</td>
+                        </tr>
+                        <tr class="total">
+                          <td colspan="2" align="right">Due</td>
+                          <td>{{ dueamt}}</td>
+                        </tr>
+                      </table>
+                    </div>
+                    <hr>
+                    <strong>Declartion:</strong><br/>
+                    <p>We declare that this invoice shows the actual price of the goods describe and that all paticular are true and correct.</p> 
+                    <!--End Table-->
+                    <p>This is Computer Generated Tax Invoice.</p>
+                  
+                    <img  src="{{ otherdata.code }}" onError="this.src='assets/images/demo.jpg'" class="rounded" width="200px" height="200px"   /> 
+
+                    <input type="button"  value="Share" class="submit" />
+
+                    <!-- <input type="button" (click)="share()" value="Share" class="submit" /> -->
+
+                  </div>
+                  
+                  
+      </div>
+  
+    <hr>
+  
+  </div>
+  </div>
+
+</div>
+     
+   <app-footer></app-footer>

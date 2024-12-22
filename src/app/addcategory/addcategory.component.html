@@ -1,0 +1,30 @@
+<app-subheader></app-subheader>
+<div class="mainbody">
+  <div class="customeradd">
+    <form  (ngSubmit)="submitquery(categoryadd)" #categoryadd="ngForm">
+   
+      <!-- <div class="form-group">
+      <label for="exampleInputEmail1">Product Name</label>
+        <input
+          type="text"
+          name="catenm"
+          ngModel
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp" [(ngModel)]="catenm"  placeholder="Category Name"
+        />
+      </div> -->
+      <ion-input label="Category Name" labelPlacement="floating" 
+      type="text"
+      name="catenm"
+      [ngModel]
+      id="catenm"   
+      ></ion-input>  
+      
+      <div class="fullbutton">
+        <input type="submit" value="Save"  />
+      </div>
+    </form>
+  </div>
+</div>
+<app-footer></app-footer>

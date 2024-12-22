@@ -1,0 +1,147 @@
+<app-subheader></app-subheader>
+<div>
+  <div class="customerlist customersale" *ngIf="loaded">
+    <div class="homesec2 search">
+      <div class="form-group has-search searchfull">
+        <span class="fa fa-search form-control-feedback"></span>
+        <table class="table">
+          <tr>
+            <td>
+              <input
+                type="text"
+                class="form-control"
+                (input)="searchproduct($event)"
+                placeholder="Product Name"
+              />
+            </td>
+            <td>
+              <input
+                type="button"
+                class="btn btn-info savebutton"
+                value="Save"
+                (click)="updateproduct()"
+              />
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="productlist">
+    <ul *ngIf="products.length > 0">
+      <li *ngFor="let data of products; index as i">
+        <!-- <a href="javascript:void(0);" (click)="productview(data.product_id)">
+          
+        </a> -->
+        <div class="box2">
+          <a (click)="productimageadd(data.product_id)">
+            <div class="imagebox">
+              <h5>{{ data.name }}</h5>
+              <img
+                *ngIf="data.image_name"
+                src="https://gbosss.com/assets/images/gallery/{{
+                  data.image_name
+                }}"
+                onError="this.src='assets/images/demo.jpg'"
+              />
+              <img *ngIf="!data.image_name" src="assets/images/demo.jpg" />
+            </div>
+          </a>
+        </div>
+        <div class="box2">
+          <label>MRP</label>
+          <input
+            class="form form-control"
+            type="hidden"
+            [ngModel]="product_id[i]"
+            (ngModelChange)="product_id[i] = $event"
+          />
+          <input
+            class="form form-control"
+            type="text"
+            [ngModel]="mrp_rate[i]"
+            (ngModelChange)="mrp_rate[i] = $event"
+          />
+        </div>
+        <div class="box2">
+          <label>Sals </label>
+          <input
+            class="form form-control"
+            type="text"
+            [ngModel]="price[i]"
+            (ngModelChange)="price[i] = $event"
+          />
+        </div>
+        <div class="box2">
+          <label>Online Price </label>
+          <input
+            class="form form-control"
+            type="text"
+            [ngModel]="online_price[i]"
+            (ngModelChange)="online_price[i] = $event"
+          />
+        </div>
+      </li>
+    </ul>
+  </div>
+    <div
+      *ngIf="products.length == 0"
+      style="margin-top: 5px; margin-left: 15px"
+    >
+      No Record
+    </div>
+  </div>
+  <ion-list style="margin-top: 45px" *ngIf="!loaded">
+    <ion-item>
+      <ion-thumbnail width="100px" slot="start">
+        <ion-skeleton-text
+          style="width: 80%; height: 80%; padding: 0px"
+          [animated]="true"
+        ></ion-skeleton-text>
+      </ion-thumbnail>
+      <ion-label>
+        <h3>
+          <ion-skeleton-text
+            [animated]="true"
+            style="width: 80%"
+          ></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text
+            [animated]="true"
+            style="width: 60%"
+          ></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-thumbnail width="100px" slot="start">
+        <ion-skeleton-text
+          style="width: 80%; height: 80%; padding: 0px"
+          [animated]="true"
+        ></ion-skeleton-text>
+      </ion-thumbnail>
+      <ion-label>
+        <h3>
+          <ion-skeleton-text
+            [animated]="true"
+            style="width: 80%"
+          ></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text
+            [animated]="true"
+            style="width: 60%"
+          ></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</div>
+
+<!-- <div class="addpurched">
+  <a  (click)="scanbarcode()"><i class="fa fa-file" aria-hidden="true"></i> Add Purched<br/>
+    <span>Scan GBOSSS QR</span>
+  </a>
+</div> -->
+
+<app-footer></app-footer>

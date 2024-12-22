@@ -1,0 +1,85 @@
+<app-subheader></app-subheader>
+
+<div class="mainbody">
+  <div class="businesscategorylist">
+    <form class="businessquery">
+      <h6>What do you work as?</h6>
+
+      <!-- <input type="text" name="businessphone"  [(ngModel)]="businessphone"  placeholder="Business Phone" class="form-control"   *ngIf="businessdetails.mobile_business_type=='Retailer'"> -->
+      <ul class="list">
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            value="Retailer"
+            name="mobile_business_type"
+            [(ngModel)]="mobile_business_type"
+          />
+          <label class="form-check-label" for="inlineCheckbox1">Retailer</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            value="Wholesaler"
+            name="mobile_business_type"
+            [(ngModel)]="mobile_business_type"
+          />
+          <label class="form-check-label" for="inlineCheckbox2"
+            >Wholesaler</label
+          >
+        </div>
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            value="Distributor"
+            name="mobile_business_type"
+            [(ngModel)]="mobile_business_type"
+          />
+          <label class="form-check-label" for="inlineCheckbox2"
+            >Distributor</label
+          >
+        </div>
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            value="Services"
+            name="mobile_business_type"
+            [(ngModel)]="mobile_business_type"
+          />
+          <label class="form-check-label" for="inlineCheckbox2">Services</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            value="Manufacturer"
+            name="mobile_business_type"
+            [(ngModel)]="mobile_business_type"
+          />
+          <label class="form-check-label" for="inlineCheckbox2"
+            >Manufacturer</label
+          >
+        </div>
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            value="Other"
+            name="mobile_business_type"
+            [(ngModel)]="mobile_business_type"
+          />
+          <label class="form-check-label" for="inlineCheckbox2">Other</label>
+        </div>
+      </ul>
+
+      <div class="fullbutton">
+        <input type="submit" value="Save" (click)="submitquery()" />
+      </div>
+    </form>
+  </div>
+</div>
+
+<app-footer></app-footer>

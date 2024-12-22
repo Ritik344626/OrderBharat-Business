@@ -1,0 +1,135 @@
+<app-subheader></app-subheader>
+<div class="mainbody">
+  <div class="customeradd">
+    <form (ngSubmit)="editproductdetail(prdctedit)" #prdctedit="ngForm">
+      <div class="form-group">
+        <input
+          type="hidden"
+          name="product_id"
+          [ngModel]="productdata.product_id"
+        />
+
+        <input
+          type="text"
+          name="prdctnm"
+          [ngModel]="name"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          placeholder="Product Name"
+        />
+      </div>
+
+      <!-- <small id="emailHelp" class="form-text text-muted text-center">Optional</small><br/>-->
+      <div class="form-group">
+        <input
+          type="number"
+          name="prdctprice"
+          [ngModel]="price"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          placeholder="Sale Price"
+        />
+      </div>
+
+      <ion-accordion-group>
+        <ion-accordion value="first">
+          <ion-item slot="header" color="light">
+            <ion-label>General</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">
+            <label for="exampleInputEmail1">MRP (Optional)</label>
+            <div class="form-group">
+              <input
+                type="number"
+                name="prdctmrp"
+                [ngModel]="mrp_rate"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+              />
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Online Price (Optional)</label>
+              <input
+                type="number"
+                name="prdctonlile"
+                 [ngModel]="online_price"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+              />
+            </div>
+            <div class="set1">
+              <div class="form-group">
+                <select class="form-control"   [(ngModel)]="producttype" name="producttype">
+                  <option value="" selected>--Product Type--</option>
+                  <option value="1" >Goods</option>
+                  <option value="2" >Services</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <input
+                type="number"
+                name="prdctopnstck"
+                 [ngModel]="quantity"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp" placeholder="Opening Stock"
+              />
+              </div>
+            </div>
+          </div>
+        </ion-accordion>
+        <ion-accordion value="second">
+          <ion-item slot="header" color="light">
+            <ion-label>Advance</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">
+            <div class="category">
+              <div class="seta">
+                <div class="form-group">
+                  <select class="form-control"  name="category_name">
+                    <option value="" selected>-- Category Name --</option>
+                    <option *ngFor="let data of categorydata" value="{{ data.category_id}}" >{{ data.category_name }}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="setb" (click)="addcategory()"> <i  aria-hidden="true" class="fa fa-plus"></i> </div>
+            </div>
+            <div class="form-group">
+              <input
+                        type="text"
+                        name="prdcthsn"
+                         [ngModel]="hsn_sac_code"
+                        class="form-control"
+                        id="exampleInputEmail1"
+                        aria-describedby="emailHelp"
+                        placeholder="HSN/SAC (Optional)"
+                      />
+            </div>
+            <div class="form-group">
+              <input
+                        type="number"
+                        name="prdctgst"
+                        [ngModel]="igst"
+                        class="form-control"
+                        id="exampleInputEmail1"
+                        aria-describedby="emailHelp"
+                        placeholder="GST% (Optional)"
+                      />
+            </div>
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
+      
+      
+     
+      <div class="fullbutton">
+        <input type="submit" value="Save" />
+      </div>
+    </form>
+  </div>
+</div>
+<app-footer></app-footer>

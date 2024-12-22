@@ -1,0 +1,21 @@
+<app-subheader></app-subheader>
+
+<div class="mainbody">
+  <div class="businesscategorylist">
+    <form class="businessquery" (ngSubmit)="submitquery(prdctedit)" #prdctedit="ngForm">
+      <ion-item>
+      <ion-textarea label="Terms and Conditions" labelPlacement="stacked" placeholder="{{ businessdetails.mobile_terms }}" name="businessedittac"  [(ngModel)]="businessedittac" style="height: 200px;"></ion-textarea>
+    </ion-item>
+      <!-- <input type="text" name="businessedittac"  [(ngModel)]="businessedittac"  placeholder="Terms and Conditions" class="form-control" > -->
+    
+<!-- <textarea  name="businessedittac"  [(ngModel)]="businessedittac"  placeholder="{{ businessdetails.mobile_terms }}" class="form-control"></textarea> -->
+      
+
+<div class="fullbutton">
+        <input type="submit" value="Update"/>
+      </div>
+    </form>
+  </div>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,75 @@
+.imageframe {
+  width: 100%;
+  // height: 230px;
+  // background-color: chocolate;
+  margin-top: 45px;
+}
+.imageframe img {
+  width: 100%;
+  height: 100%;
+}
+.imageframeshort .shortimage {
+  width: 30%;
+  height: 70px;
+  background-color: cyan;
+  margin: 5px;
+}
+.imageframeshort {
+  display: flex;
+}
+.mainbody h5 {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.prodeuctdetails p {
+  margin-bottom: 5px;
+  font-size: 14px;
+  color:black;
+}
+.prodeuctdetails p .saleprice {
+  color: #097500;
+  margin-right: 5px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.prodeuctdetails p .mrp {
+  color: #750000;
+  margin-right: 5px;
+  text-decoration: line-through;
+  font-weight: bold;
+}
+
+.buttombar {
+  display: flex;
+  position: fixed;
+  z-index: 50;
+  width: 100%;
+}
+.buttombar .box {
+  width: 30%;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+}
+.buttombar .box1 {
+  background-color: darkgreen;
+  color: white;
+  margin-right: 2px;
+  padding: 8px 0px;
+}
+.buttombar .box2 {
+  background-color: #ff4800;
+  color: white;
+  margin-right: 2px;
+  padding: 8px 0px;
+}
+.buttombar .box3 {
+  background-color: #007cff;
+  color: white;
+  margin-right: 2px;
+  padding: 8px 0px;
+}
+.uploadimage{position: fixed;
+  right: 10px;
+  font-size: 25px;}

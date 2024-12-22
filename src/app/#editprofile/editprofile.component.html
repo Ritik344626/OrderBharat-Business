@@ -1,0 +1,147 @@
+<app-subheader></app-subheader>
+<div class="mainbody">
+  <div class="profiletop d-flex justify-content-center">
+    <div class="card p-2">
+      <div
+        *ngIf="loaded"
+        class="d-flex justify-content-center align-items-center imagebox1"
+      >
+        <div class="image">
+          <img
+            routerLink="/qrcodeview"
+            src="{{ otherdata.code }}"
+            onError="this.src='assets/images/demo.jpg'"
+            class="rounded"
+          />
+          <p>Shop QR Code</p>
+        </div>
+
+        <div class="image" style="height: auto" (click)="setOpen(true)">
+          <img
+            *ngIf="image"
+            src="{{ image }}"
+            onError="this.src='assets/images/demo.jpg'"
+            class="rounded"
+          />
+          <img
+            *ngIf="!image"
+            src="assets/images/demo.jpg"
+            onError="this.src='assets/images/demo.jpg'"
+            class="rounded"
+          />
+          <!-- <p>Shop Logo</p> -->
+        </div>
+      </div>
+
+      <ion-list *ngIf="!loaded">
+        <ion-item>
+          <ion-thumbnail
+            width="100%"
+            style="width: 50%; height: 200px; padding: 0px"
+          >
+            <ion-skeleton-text
+              style="width: 80%; height: 80%; padding: 0px"
+              [animated]="true"
+            ></ion-skeleton-text>
+          </ion-thumbnail>
+
+          <ion-thumbnail
+            width="100px"
+            style="width: 50%; height: 200px; padding: 0px"
+          >
+            <ion-skeleton-text
+              style="width: 80%; height: 80%; padding: 0px"
+              [animated]="true"
+            ></ion-skeleton-text>
+          </ion-thumbnail>
+        </ion-item>
+      </ion-list>
+
+      <div class="w-100">
+        <h5 class="mb-0 mt-0" (click)="editlist()">
+          {{ businessdetails.name }}
+          <i class="fa fa-pencil" aria-hidden="true"></i>
+        </h5>
+        <span>{{ businessdetails.mobile_shortinfo }}</span>
+        <div
+          *ngIf="loaded"
+          class="mt-2 info d-flex justify-content-between rounded text-white stats bg-grey p-3"
+        >
+          <div class="d-flex flex-column">
+            <span class="articles">Point</span> <span class="number1"></span>
+          </div>
+          <div class="d-flex flex-column">
+            <span class="followers">Redeem</span>
+            <span class="number2">{{ otherdata.totalscan }}</span>
+          </div>
+
+          <div class="d-flex flex-column">
+            <span class="followers">Scan</span>
+            <span class="number2">{{ otherdata.totalscan }}</span>
+          </div>
+
+          <div class="d-flex flex-column">
+            <span class="rating">Active</span>
+            <span class="number3">{{ otherdata.newscan }}</span>
+          </div>
+          <!-- <div class="d-flex flex-column"> <span class="rating">Total Order</span> <span class="number3">89</span> </div> -->
+        </div>
+        <ion-list *ngIf="!loaded">
+          <ion-skeleton-text width="100%" [animated]="true"></ion-skeleton-text>
+          <ion-skeleton-text width="100%" [animated]="true"></ion-skeleton-text>
+          <ion-skeleton-text width="100%" [animated]="true"></ion-skeleton-text>
+        </ion-list>
+        <!-- <div class="button mt-2 d-flex flex-row align-items-center"> <button class="btn btn-sm btn-outline-primary w-100" (click)="editprofile()">Edit</button> <button class="btn btn-sm btn-primary w-100 ml-2">Like</button> </div> -->
+      </div>
+    </div>
+  </div>
+  <!-- <div class="advertisement">
+  <ul>
+    <li><img src="assets/images/advertisement.jpg"></li>
+    <li><img src="assets/images/advertisement.jpg"></li>
+    <li><img src="assets/images/advertisement.jpg"></li>
+    <li><img src="assets/images/advertisement.jpg"></li> 
+
+    <li><img src="assets/images/advertisement.jpg"></li>
+    <li><img src="assets/images/advertisement.jpg"></li>
+    <li><img src="assets/images/advertisement.jpg"></li>
+    <li><img src="assets/images/advertisement.jpg"></li> 
+   
+  </ul>
+</div> -->
+
+  <ion-modal class="custom-modal" [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Upload Shop logo</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="setOpen(false)">Close</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-card>
+          <ion-card-content>
+            <form (ngSubmit)="onSubmit()">
+              <label for="fileInput" class="custom-file-upload">
+                <span>Select shop logo file</span>
+              </label>
+              <input
+                type="file"
+                id="fileInput"
+                (change)="onFileSelected($event)"
+                accept=".jpg, .png"
+                style="display: none"
+              />
+              <br />
+              <button type="submit" class="btn btn-success">Upload File</button>
+            </form>
+          </ion-card-content>
+        </ion-card>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</div>
+<!-- <div class="adds"><img src="assets/images/add.jpg"></div> -->
+<app-footer></app-footer>

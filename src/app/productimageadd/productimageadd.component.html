@@ -1,0 +1,22 @@
+<app-subheader></app-subheader>
+<div class="mainbody">
+  <div class="topset">
+    <h5>{{ name }}</h5>
+  </div>
+  <div class="imageframe">
+    <!-- <img (click)="chooseimage()" src="{{ base64File }}" /> -->
+  </div>
+
+  <div class="imageframeshort">
+    <button
+      (click)="uploadimage()"
+      id="uploadbtn"
+      type="button"
+      class="btn btn-dark"
+    >
+      <i class="fa fa-upload"></i> Upload Image
+    </button>
+  </div>
+</div>
+
+<app-footer></app-footer>

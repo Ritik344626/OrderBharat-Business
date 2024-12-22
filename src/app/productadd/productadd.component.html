@@ -1,0 +1,149 @@
+<app-subheader></app-subheader>
+<div class="mainbody">
+  <div class="customeradd">
+    <form (ngSubmit)="addproduct(prdctadd)" #prdctadd="ngForm">
+      <!-- <form > -->
+      <ion-input
+        label="Product Name"
+        labelPlacement="floating"
+        type="text"
+        name="prdctnm"
+        [ngModel]
+        id="prdctnm"
+        class="input-field"
+      ></ion-input>
+      <ion-input
+        label="Online Price"
+        labelPlacement="floating"
+        type="number"
+        name="onlineprice"
+        [ngModel]
+        id="onlineprice"
+      ></ion-input>
+      <hr />
+      <ion-accordion-group>
+        <ion-accordion value="first">
+          <ion-item slot="header" color="light">
+            <ion-label>General</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">
+            <ion-input
+              label="MRP (Optional)"
+              labelPlacement="floating"
+              type="number"
+              name="prdctmrp"
+              [ngModel]
+              id="prdctmrp"
+              class="input-field"
+            ></ion-input>
+            <div class="set1">
+
+              <ion-list>
+                <ion-item>
+                  <ion-select label="Product Type" name="producttype">
+                    <ion-select-option value="1">Goods</ion-select-option>
+                    <ion-select-option value="2">Services</ion-select-option>
+                  </ion-select>
+                </ion-item>
+              </ion-list>
+
+              <ion-input
+                label="Opening Stock"
+                labelPlacement="floating"
+                [counter]="true"
+                maxlength="4"
+                type="text"
+                name="prdctopnstck"
+                [ngModel]
+                id="prdctopnstck"
+              ></ion-input>
+            </div>
+          </div>
+        </ion-accordion>
+        
+        <ion-accordion value="second">
+          <ion-item slot="header" color="light">
+            <ion-label>Advance</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">
+            <div class="category">
+              <div class="seta">
+                <ion-list>
+                  <ion-item>
+                    <ion-select label="Category Name" [ngModel]  name="category_name">
+                      <ion-select-option
+                        *ngFor="let data of categorydata"
+                        value="{{ data.category_id }}"
+                        >{{ data.category_name }}</ion-select-option
+                      >
+                      <!-- <ion-select-option   value="2">Services</ion-select-option>            -->
+                    </ion-select>
+                  </ion-item>
+                </ion-list>
+              </div>
+              <div class="setb" (click)="addcategory()"> <i aria-hidden="true" class="fa fa-plus"></i> </div>
+            </div>
+            <ion-input
+              label="HSN/SAC (Optional)"
+              labelPlacement="floating"
+              type="text"
+              name="prdcthsn"
+              [ngModel]
+              id="prdcthsn"
+              class="input-field"
+            ></ion-input>
+            <ion-input
+              label="GST% (Optional)"
+              labelPlacement="floating"
+              type="number"
+              name="prdctgst"
+              [ngModel]
+              id="prdctgst"
+              class="input-field"
+            ></ion-input>
+          </div>
+        </ion-accordion>
+		
+		<ion-accordion value="third">
+          <ion-item slot="header" color="light">
+            <ion-label>Details</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">
+
+            <ion-textarea
+            label="Product details"
+            labelPlacement="floating"
+            name="details"
+            [(ngModel)]="details"
+            id="details"
+            class="input-field"
+            rows="4"  ></ion-textarea>
+            
+            <!-- <ion-item>
+              <ion-label position="stacked">Product details</ion-label>
+              <ion-textarea [(ngModel)]="productDetails" name="details" style="height: 200px;"></ion-textarea>
+            </ion-item> -->
+            
+			 
+			<!-- 
+			   <ion-input
+              label="HSN/SAC (Optional)"
+              labelPlacement="floating"
+              type="text"
+              name="prdcthsn"
+              [ngModel]
+              id="prdcthsn"
+              class="input-field"
+            ></ion-input>-->
+            
+          </div>
+        </ion-accordion>
+		
+      </ion-accordion-group>
+      <div class="fullbutton">
+        <input type="submit" value="Save" class="submit" />
+      </div>
+    </form>
+  </div>
+</div>
+<app-footer></app-footer>

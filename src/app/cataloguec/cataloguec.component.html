@@ -1,0 +1,102 @@
+<app-subheader></app-subheader>
+<div class="mainbody">
+  <div class="customerlist customersale">
+
+    <ul>
+      <li>
+        <div class="imagebox">
+        <img src="https://picsum.photos/id/237/200/300" class="rounded-circle" height="70px" width="70px">
+      </div>
+      <div class="details"><h4>My Offer</h4>
+      <p>4.14 PM</p>
+      </div> 
+      </li> 
+    </ul>
+
+    <p class="recent">Recent Updates</p>
+
+    <ul>
+      <li>
+        <div class="imagebox">
+        <img src="https://picsum.photos/id/237/200/300" class="rounded-circle" height="70px" width="70px">
+      </div>
+      <div class="details"><h4>My Offer</h4>
+        <p>4.14 PM</p></div> 
+      </li> 
+      <li>
+        <div class="imagebox">
+        <img src="https://picsum.photos/id/237/200/300" class="rounded-circle" height="70px" width="70px">
+      </div>
+      <div class="details"><h4>My Offer</h4>
+        <p>4.14 PM</p></div> 
+      </li> 
+      <li>
+        <div class="imagebox">
+        <img src="https://picsum.photos/id/237/200/300" class="rounded-circle" height="70px" width="70px">
+      </div>
+      <div class="details"><h4>My Offer</h4>
+        <p>4.14 PM</p></div> 
+      </li> 
+      <li>
+        <div class="imagebox">
+        <img src="https://picsum.photos/id/237/200/300" class="rounded-circle" height="70px" width="70px">
+      </div>
+      <div class="details"><h4>My Offer</h4>
+        <p>4.14 PM</p></div> 
+      </li> 
+      <li>
+        <div class="imagebox">
+        <img src="https://picsum.photos/id/237/200/300" class="rounded-circle" height="70px" width="70px">
+      </div>
+      <div class="details"><h4>My Offer</h4>
+        <p>4.14 PM</p></div> 
+      </li> 
+    </ul>
+ 
+  
+    <ion-modal class="custom-modal" [isOpen]="isModalOpen">
+      <ng-template>
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>Attach Doc</ion-title>
+            <ion-buttons slot="end">
+              <ion-button (click)="setOpen(false)">Close</ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+          <ion-card>
+            <ion-card-content>
+              <form (ngSubmit)="onSubmit()">
+                <label for="fileInput" class="custom-file-upload">
+                  <span>Select File</span>
+                </label>
+                <input
+                  type="file"
+                  id="fileInput"
+                  (change)="onFileSelected($event)"
+                  accept=".jpg, .png"
+                  style="display: none"
+                />
+                <br />
+                <button type="submit" class="btn btn-success">
+                  Upload File
+                </button>
+              </form>
+            </ion-card-content>
+          </ion-card>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+
+    <div class="buttombar">
+      <!-- <div class="box box1"> -->
+      <!-- <i class="fa fa-plus" aria-hidden="true"></i>  -->
+      <button class="box box1" (click)="setOpen(true)">+</button>
+      <!-- </div> -->
+    </div>
+  </div>
+  
+</div>
+
+<app-footer></app-footer>

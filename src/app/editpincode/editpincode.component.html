@@ -1,0 +1,17 @@
+<app-subheader></app-subheader>
+
+<div class="mainbody">
+  <div class="businesscategorylist">
+    <form class="businessquery">
+
+      <input type="text" name="businessepincode"  [(ngModel)]="businessepincode"  placeholder="Pincode" class="form-control" >
+    
+
+      <div class="fullbutton">
+        <input type="submit" value="Update"  (click)="submitquery()"/>
+      </div>
+    </form>
+  </div>
+</div>
+
+<app-footer></app-footer>

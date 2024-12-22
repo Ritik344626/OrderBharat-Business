@@ -1,0 +1,47 @@
+<app-subheader></app-subheader>
+<div class="mainbody">
+  <div class="profiletop d-flex justify-content-center">
+ 
+      <div class="imagebox1">
+
+        <div class="title">
+
+          {{ businessdetails.name }}
+        </div>
+
+
+
+        <div id="upiIdCard" class="image">
+          <!-- <img src="assets/images/upi-display.jpg" /> -->
+
+         
+          <div class="qrcode">
+            <img
+              src="{{ otherdata.code }}"
+              onError="this.src='assets/images/demo.jpg'"
+              class="rounded"
+            />
+          </div>
+        </div>
+
+
+        <!-- <input
+          *ngIf="!this.downloadButtonStatus; else downloadLoader"
+          type="button"
+          (click)="upiIdCardDownload()"
+          [value]="'Download'"
+          class="submit"
+        />
+        <ng-template #downloadLoader>
+          <div class="submit d-flex justify-content-center">
+            <ion-spinner style="background-color: transparent"></ion-spinner>
+          </div>
+        </ng-template> -->
+
+        <!-- <input type="button" (click)="share()" value="Download" class="submit" /> -->
+      </div>
+ 
+  </div>
+</div>
+<!-- <div class="adds"><img src="assets/images/add.jpg"></div> -->
+<app-footer></app-footer>

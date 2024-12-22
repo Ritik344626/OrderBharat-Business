@@ -1,0 +1,39 @@
+<app-subheader></app-subheader>
+<div class="mainbody">
+  <div *ngIf="loaded" class="customeradd" [innerHTML]="page.details"></div>
+  <ion-list *ngIf="!loaded" style="margin-top: 25px">
+    <ion-item>
+      <ion-label>
+        <h3>
+          <ion-skeleton-text
+            [animated]="true"
+            style="width: 60%"
+          ></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text
+            [animated]="true"
+            style="width: 80%"
+          ></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <h3>
+          <ion-skeleton-text
+            [animated]="true"
+            style="width: 100%"
+          ></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text
+            [animated]="true"
+            style="width: 100%"
+          ></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</div>
+<app-footer></app-footer>

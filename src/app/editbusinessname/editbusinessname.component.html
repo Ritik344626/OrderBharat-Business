@@ -1,0 +1,23 @@
+<app-subheader></app-subheader>
+
+<div class="mainbody">
+  <div class="businesscategorylist">
+    <form class="businessquery" (ngSubmit)="submitquery(prdctedit)" #prdctedit="ngForm">
+
+      <ion-input label="Business Name" labelPlacement="floating" 
+      type="text"
+      name="businessname"
+      [ngModel]="name"
+      id="businessname"   
+      ></ion-input>
+
+      
+     <!-- <input type="text" name="businessname"  [(ngModel)]="businessname"  placeholder="Business Name" class="form-control" value="{{ businessdetails.name }}" > -->
+        <div class="fullbutton">
+        <input type="submit" value="Update"/>
+      </div>
+    </form>
+  </div>
+</div>
+
+<app-footer></app-footer>

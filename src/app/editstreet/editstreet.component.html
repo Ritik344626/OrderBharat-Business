@@ -1,0 +1,132 @@
+<app-subheader></app-subheader>
+
+<div class="mainbody">
+  <div class="businesscategorylist">
+    <form class="businessquery">
+      <div class="d-flex justify-content-center">
+        <button (click)="getLocation()" class="btn btn-info w-100">
+          <i class="fa fa-map-marker" aria-hidden="true"></i> Current Location
+        </button>
+      </div>
+      <div class="clear"></div>
+
+      <h2 class="style-four"><span>or</span></h2>
+      <ion-list class="pb-2">
+        <ion-searchbar
+          id="open-modal"
+          expand="block"
+          class="ion-padding px-2 custom"
+          search-icon="search-circle"
+          [value]="query"
+          placeholder="Search for area, street..."
+          type="text"
+        ></ion-searchbar>
+      </ion-list>
+      <div class="form-group">
+        <ion-input
+          type="text"
+          name="businessestreet"
+          [(ngModel)]="businessestreet"
+          placeholder="Street Details"
+          class="input-field mb-2"
+        ></ion-input>
+      </div>
+
+      <div class="seta">
+        <ion-list>
+          <ion-item class="form-group">
+            <ion-label class="content">State</ion-label>
+            <ion-select
+              [(ngModel)]="state"
+              name="state"
+              (change)="stateid($event)"
+              id="state"
+            >
+              <ion-select-option
+                *ngFor="let data of stateslistdata"
+                [selected]="data.id === state"
+                value="{{ data.id }}"
+              >
+                {{ data.name }}</ion-select-option
+              >
+            </ion-select>
+          </ion-item>
+        </ion-list>
+      </div>
+      <div class="seta">
+        <ion-list>
+          <ion-item class="form-group">
+            <ion-label class="content">City</ion-label>
+            <ion-select [(ngModel)]="city_id" name="city_id" id="city_id">
+              <ion-select-option
+                *ngFor="let data of cityslistdata"
+                [selected]="data.id === city_id"
+                value="{{ data.id }}"
+              >
+                {{ data.name }}</ion-select-option
+              >
+            </ion-select>
+          </ion-item>
+        </ion-list>
+      </div>
+
+      <div class="form-group">
+        <ion-input
+          type="text"
+          name="Pincode"
+          [(ngModel)]="pincode"
+          placeholder="Pincode"
+          class="input-field mb-2"
+        ></ion-input>
+      </div>
+
+      <div class="fullbutton">
+        <input
+          class="w-100"
+          type="submit"
+          value="Update"
+          (click)="submitquery()"
+        />
+      </div>
+    </form>
+  </div>
+</div>
+<ion-modal #modal trigger="open-modal">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-searchbar
+          class="ion-padding"
+          [value]="query"
+          placeholder="Search for area, street..."
+          type="text"
+          show-clear-button="always"
+          (ionInput)="onSearchChange($event)"
+        ></ion-searchbar>
+        <ion-buttons slot="end">
+          <ion-button (click)="modal.dismiss()">Close</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list *ngIf="places?.length > 0">
+        <ion-item
+          id="open-toast"
+          expand="block"
+          *ngFor="let place of places"
+          (click)="selectedAddress(place); modal.dismiss()"
+          class="ion-margin-top"
+        >
+          <ion-icon name="location-outline" slot="start"></ion-icon>
+          <ion-label>
+            {{ place?.title }}
+            <p>
+              <ion-text> {{ place?.address }} </ion-text>
+            </p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ng-template></ion-modal
+>
+<app-footer></app-footer>

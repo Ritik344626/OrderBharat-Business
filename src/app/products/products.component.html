@@ -1,0 +1,220 @@
+<!-- <app-subheader></app-subheader> -->
+
+<div class="wrapper">
+  <!-- Sidebar  -->
+  <div class="overlay"></div>
+  <div id="content">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <div class="leftside">
+          <div id="sidebarCollapse" routerLink="/home">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+          </div>
+          <div class="name text-left appsnametop">&nbsp; Product List</div>
+        </div>
+
+        <ul class="homeheader" *ngIf="showMenu">
+          <!-- <li><i class="fa fa-share-alt" aria-hidden="true"></i></li> -->
+
+          <li  (click)="highlightproduct()"><i class="fa fa-star" aria-hidden="true"></i></li>
+
+          <li (click)="editproduct()">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+          </li>
+
+          <li *ngIf="status == 1" (click)="activedeactiveproduct(0)">
+            <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+          </li>
+          <li *ngIf="status == 0" (click)="activedeactiveproduct(1)">
+            <i class="fa fa-thumbs-down" aria-hidden="true"></i>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div *ngIf="auth" class="mainbody" (scroll)="getScrollPos($event)">
+      <div class="customerlist customersale">
+        <div class="homesec2 search">
+          <div class="form-group has-search searchfull">
+            <span class="fa fa-search form-control-feedback"></span>
+            <input
+              type="text"
+              class="form-control"
+              (input)="searchproduct($event)"
+              placeholder="Product Name"
+            />
+          </div>
+          <ul>
+            <li (click)="presentPopover($event)">
+              <i class="fa fa-filter" aria-hidden="true"></i>
+            </li>
+          </ul>
+          <ion-popover #popover [isOpen]="isOpen" (didDismiss)="isOpen = false">
+            <ng-template>
+              <app-popover-content>
+                <form class="p-3">
+                  <ion-item
+                    *ngFor="let data of categorydata"
+                    class="d-flex align-items-center flex-row w-full"
+                  >
+                    <div class="d-flex flex-row">
+                      <input
+                        type="radio"
+                        name="category"
+                        id="{{ data.category_id }}"
+                        value="{{ data.category_id }}"
+                        [checked]="data.category_id == category_id"
+                        (click)="categorySelection($event); isOpen = false"
+                      />
+                      <label for="{{ data.category_id }}"
+                        >&nbsp; {{ data.category_name.trim() }}</label
+                      >
+                      <!-- <ion-radio
+                        value="{{ data.category_id }}"
+                        justify="start"
+                      ></ion-radio>
+                      <span>{{ data.category_name.trim() }}</span> -->
+                    </div>
+                  </ion-item>
+                  <button
+                    (click)="clearAll(); isOpen = false"
+                    type="submit"
+                    class="apply-button"
+                  >
+                    Clear All
+                  </button>
+                </form>
+              </app-popover-content>
+            </ng-template>
+          </ion-popover>
+          <!-- <ion-alert
+        trigger="present-alert"
+        header="Select Category"
+        [buttons]="alertButtons"
+        [inputs]="alertInputs"
+      ></ion-alert> -->
+        </div>
+
+        <div *ngIf="loaded">
+          <ul *ngIf="products.length > 0">
+            <li
+  *ngFor="let data of products"
+  (click)="onLongPress(data)"
+  (dblclick)="productview(data.product_id)"
+  class="p-2"
+  [ngClass]="{
+    'selectedProduct': product_id == data.product_id || data.highlight == 1
+  }"
+>
+              <a>
+                <div class="imagebox">
+                  <img
+                    *ngIf="data.image_name"
+                    src="https://gbosss.com/assets/order_bharat/{{
+                      data.image_name
+                    }}"
+                    onError="this.src='assets/images/demo.jpg'"
+                  />
+                  <img *ngIf="!data.image_name" src="assets/images/demo.jpg" />
+                </div>
+              </a>
+              <div class="box1">
+                <!-- <a href="javascript:void(0);" (click)="productview(data.product_id)"><h5>{{ data.name }}</h5></a> -->
+                <h5>{{ data.name }}</h5>
+                <p>
+                  <span class="saleprice">&#8377; {{ data.online_price }}</span>
+                  <span class="mrp">&#8377; {{ data.mrp_rate }}</span>
+                </p>
+              </div>
+
+              <div class="box2">
+                <h5>{{ data.totalsale }}</h5>
+                <p>Total Sale</p>
+              </div>
+
+              <!-- <ion-button (click)="productview(data.product_id)" appLongPress (longPress)="onLongPress()">Long Press Me</ion-button> -->
+            </li>
+            <li
+              *ngIf="products.length != productCount"
+              class="loading-button d-flex justify-content-center mb-10"
+              (click)="loadMoreProduct()"
+            >
+              Load More
+            </li>
+          </ul>
+          <div *ngIf="products.length == 0">No Record Founded</div>
+        </div>
+        <ion-list *ngIf="!loaded">
+          <ion-item>
+            <ion-thumbnail width="100px" slot="start">
+              <ion-skeleton-text
+                style="width: 80%; height: 80%; padding: 0px"
+                [animated]="true"
+              ></ion-skeleton-text>
+            </ion-thumbnail>
+            <ion-label>
+              <h3>
+                <ion-skeleton-text
+                  [animated]="true"
+                  style="width: 80%"
+                ></ion-skeleton-text>
+              </h3>
+              <p>
+                <ion-skeleton-text
+                  [animated]="true"
+                  style="width: 60%"
+                ></ion-skeleton-text>
+              </p>
+            </ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-thumbnail width="100px" slot="start">
+              <ion-skeleton-text
+                style="width: 80%; height: 80%; padding: 0px"
+                [animated]="true"
+              ></ion-skeleton-text>
+            </ion-thumbnail>
+            <ion-label>
+              <h3>
+                <ion-skeleton-text
+                  [animated]="true"
+                  style="width: 80%"
+                ></ion-skeleton-text>
+              </h3>
+              <p>
+                <ion-skeleton-text
+                  [animated]="true"
+                  style="width: 60%"
+                ></ion-skeleton-text>
+              </p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </div>
+    </div>
+
+    <!-- 
+<div class="addpurched">
+  <a routerLink="/addcategory"
+    ><i class="fa fa-file" aria-hidden="true"></i> Add Category<br />
+  </a>
+</div> -->
+
+    <div class="addcategorylist">
+      <!-- <a  (click)="scanbarcode()"><i class="fa fa-file" aria-hidden="true"></i> Add Purched<br/>
+    <span>Scan GBOSSS QR</span>
+  </a> -->
+
+      <a routerLink="/categorylist"
+        ><i class="fa fa-file" aria-hidden="true"></i> Category List<br />
+      </a>
+    </div>
+
+    <div class="addcustomerhome">
+      <a routerLink="/productadd"
+        ><i class="fa fa-plus" aria-hidden="true"></i> Add Products</a
+      >
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>

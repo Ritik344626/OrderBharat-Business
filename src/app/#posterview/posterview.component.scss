@@ -1,0 +1,65 @@
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  top: 100px;
+  left: 100px;
+}
+
+.overlay-text {
+  position: absolute;
+  // cursor: move;
+}
+
+.controls {
+  position: fixed;
+  top: 100px;
+  left: 100px;
+  background: white;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+  
+  ion-item {
+    --background: #f9f9f9;
+    --border-radius: 10px;
+    margin: 10px 0;
+  }
+  
+  ion-label {
+    font-weight: bold;
+    color: #555;
+    padding-left: 10px;
+  }
+  
+  ion-input {
+    --padding-start: 10px;
+    --padding-end: 10px;
+    --background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 5px 0;
+  }
+  
+  ion-button {
+    --background: #007bff;
+    --border-radius: 5px;
+    margin: 20px 0;
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  ion-button:hover {
+    --background: #0056b3;
+  }
+  

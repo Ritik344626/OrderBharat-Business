@@ -1,0 +1,31 @@
+<app-subheader></app-subheader>
+
+<div class="mainbody">
+  <div class="businesscategorylist">
+    <form class="businessquery" (ngSubmit)="submitquery(prdctedit)" #prdctedit="ngForm">
+     
+      <ion-input label="Business GST" labelPlacement="floating" 
+      type="text"
+      name="businessgst"
+      [ngModel]="businessdetails.gstin"
+      id="businessgst"   
+      ></ion-input>
+
+      
+      <!-- <label>GST Number</label>
+       <input type="text" name="businessgst"  [(ngModel)]="businessgst"  placeholder="{{ businessdetails.gstin }}" class="form-control" >  -->
+
+      <!-- <ion-input label="GST Nuber" labelPlacement="floating" 
+      type="text"
+      name="businessgst"
+      [ngModel]="gstin"
+      id="businessgst"
+      ></ion-input>  -->
+      <div class="fullbutton">
+        <input type="submit" value="Update" />
+      </div>
+    </form>
+  </div>
+</div>
+
+<app-footer></app-footer>

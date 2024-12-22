@@ -1,0 +1,17 @@
+<app-subheader></app-subheader>
+
+<div class="mainbody">
+  <div class="businesscategorylist">
+    <form class="businessquery" (ngSubmit)="submitquery(prdctedit)" #prdctedit="ngForm">
+      <ion-item>
+        <ion-textarea label="Return & refund" labelPlacement="stacked" placeholder="{{ businessdetails.mobile_refund }}" name="refund"  [(ngModel)]="refund" style="height: 200px;"></ion-textarea>
+      </ion-item>
+
+        <div class="fullbutton">
+        <input type="submit" value="Update" />
+      </div>
+    </form>
+  </div>
+</div>
+
+<app-footer></app-footer>

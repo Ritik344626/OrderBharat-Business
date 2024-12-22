@@ -1,0 +1,79 @@
+<app-subheader></app-subheader>
+<div *ngIf="loaded" class="mainbody step1">
+  <h6 class="mt-2">Business Name: {{ businessdetails.name }}</h6>
+
+  <!-- <p> <strong>Campaign Name: </strong> {{ ads_details.add_name }}</p> -->
+  <!-- <p> <strong>Ads Type: </strong>
+   
+        <span *ngIf="ads_details.ads_type==1">Catelog Ads</span> 
+        <span *ngIf="ads_details.ads_type==2">Enquiry Ads</span> 
+        <span *ngIf="ads_details.ads_type==3">Call Ads</span> 
+        <span *ngIf="ads_details.ads_type==4">App Install Ads</span> 
+      </p> -->
+  <!-- <p> <strong>Apps Name: </strong> {{ ads_details.apps_name }}</p> -->
+  <!-- <p> <strong>App Link: </strong> {{ ads_details.app_link }}</p> -->
+  <div *ngIf="ads_details.length > 0">
+    <p><strong>Start Date: </strong> {{ ads_details[0].start_date }}</p>
+    <p><strong>End Date: </strong> {{ ads_details[0].end_date }}</p>
+    <p><strong>Total Days: </strong> {{ ads_details[0].days_number }}</p>
+    <p><strong>Address: </strong> {{ ads_details[0].pickup_address }}</p>
+
+    <p><strong>Redius : </strong> {{ ads_details[0].redius }}</p>
+    <p><strong>Price : </strong> &#8377; {{ ads_details[0].maxprice }}</p>
+    <p><strong>Discount : </strong> &#8377; {{ ads_details[0].discount }}</p>
+    <p><strong>GST Price : </strong> &#8377; {{ ads_details[0].gstprice }}</p>
+    <p>
+      <strong>Final price : </strong> &#8377; {{ ads_details[0].finalprice }}
+    </p>
+    <p>
+      <strong>Status : </strong>
+      <span *ngIf="ads_details[0].status == 1">Pending</span>
+      <span *ngIf="ads_details[0].status == 2">Approved</span>
+      <span *ngIf="ads_details[0].status == 3">Suspended</span>
+      <span *ngIf="ads_details[0].status == 4">Ads Pused</span>
+    </p>
+  </div>
+  <div *ngIf="ads_details.length == 0">Not Available</div>
+</div>
+<ion-list style="width: 100%" *ngIf="!loaded">
+  <ion-item>
+    <ion-skeleton-text
+      [animated]="true"
+      style="width: 100%"
+    ></ion-skeleton-text>
+  </ion-item>
+
+  <ion-item>
+    <ion-skeleton-text
+      [animated]="true"
+      style="width: 100%"
+    ></ion-skeleton-text>
+  </ion-item>
+  <ion-item>
+    <ion-skeleton-text
+      [animated]="true"
+      style="width: 100%"
+    ></ion-skeleton-text>
+  </ion-item>
+
+  <ion-item>
+    <ion-skeleton-text
+      [animated]="true"
+      style="width: 100%"
+    ></ion-skeleton-text>
+  </ion-item>
+  <ion-item>
+    <ion-skeleton-text
+      [animated]="true"
+      style="width: 100%"
+    ></ion-skeleton-text>
+  </ion-item>
+
+  <ion-item>
+    <ion-skeleton-text
+      [animated]="true"
+      style="width: 100%"
+    ></ion-skeleton-text>
+  </ion-item>
+</ion-list>
+<app-footer></app-footer>

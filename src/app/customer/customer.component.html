@@ -1,0 +1,154 @@
+<app-subheader></app-subheader>
+<!--Page Content  -->
+
+<div class="mainbody">
+  <div class="topset">
+    <h5>
+      {{ customerdata.customer_name }}
+      <i
+        class="fa fa-pencil"
+        aria-hidden="true"
+        (click)="editcustomer(customerdata.customer_id)"
+      ></i>
+    </h5>
+    <div class="hometopbox">
+      <div class="sectiontop">
+        <div class="box">
+          <h4>{{ otherdata.yougive }}</h4>
+          <p>You Give</p>
+        </div>
+        <div class="box">
+          <h4>{{ otherdata.yougot }}</h4>
+          <p>You Get</p>
+        </div>
+        <div class="box">
+          <h4>{{ otherdata.yougot - otherdata.yougive }}</h4>
+          <p>Balance</p>
+        </div>
+      </div>
+      <!-- <div class="sectionbuttom">
+              <div class="paymentreminderleft"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;Set Payment Reminder</div>
+              <div class="paymentreminderright"><a href="#"><strong>Set Date</strong></a></div>
+            </div> -->
+    </div>
+    <!-- <div class="customertopbox">
+      <div class="box">
+        <h4><i class="fa fa-file-pdf-o" aria-hidden="true"></i></h4>
+        <p>Report</p>
+      </div> 
+      <div class="box">
+        <h4>
+          <a (click)="invoicelist(customerdata.customer_id)"><i class="fa fa-address-book-o" aria-hidden="true"></i
+          ></a>
+        </h4>
+        <p>Invoice</p>
+      </div>
+      <div class="box">
+        <h4>
+         <a (click)="share()">
+            <i class="fa fa-whatsapp" aria-hidden="true"></i>
+          </a> 
+        </h4>
+        <p>Reminder</p>
+      </div>
+  <div class="box">
+        <h4>
+          <a (click)="customersms()"
+            ><i class="fa fa-commenting" aria-hidden="true"></i>
+          </a> 
+        </h4>
+        <p>SMS</p>
+      </div>
+      <div class="box">
+        <h4>
+          <a (click)="customersale()"
+            ><i class="fa fa-database" aria-hidden="true"></i
+          ></a>
+        </h4>
+        <p>Products</p>
+      </div>
+    </div>
+  </div>-->
+    <div class="customerlist">
+      <!-- <div class="homesec2 search">
+        <div class="form-group has-search searchfull">
+          <span class="fa fa-search form-control-feedback"></span>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Invoice Number"
+          />
+        </div>
+      </div> -->
+      <div class="subject">
+        <div class="box1">Entries</div>
+        <div class="box2">You Give</div>
+        <div class="box2">You Got</div>
+        <div class="box2">Balance</div>
+      </div>
+      <ul *ngIf="loaded">
+        <li *ngFor="let data of salesdata">
+          <div class="box1">
+            <h5>{{ data.voucher_date | date : "dd-MM-yyyy" }}</h5>
+            <p>{{ data.narration }}</p>
+          </div>
+          <div class="box2 red">
+            <h5 *ngIf="data.type == 'P'">&#8377; {{ data.amount }}</h5>
+            <!-- <p>Inv. Amo.</p> -->
+          </div>
+          <div class="box2 green">
+            <h5 *ngIf="data.type == 'R'">&#8377; {{ data.amount }}</h5>
+            <!-- <p>Type</p> -->
+          </div>
+          <div class="box2">
+            <h5>{{ data.mode }}</h5>
+            <p>Type</p>
+          </div>
+        </li>
+      </ul>
+      <ion-list *ngIf="!loaded">
+        <ion-item>
+          <ion-label>
+            <h3>
+              <ion-skeleton-text
+                [animated]="true"
+                style="width: 80%"
+              ></ion-skeleton-text>
+            </h3>
+            <p>
+              <ion-skeleton-text
+                [animated]="true"
+                style="width: 60%"
+              ></ion-skeleton-text>
+            </p>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            <h3>
+              <ion-skeleton-text
+                [animated]="true"
+                style="width: 80%"
+              ></ion-skeleton-text>
+            </h3>
+            <p>
+              <ion-skeleton-text
+                [animated]="true"
+                style="width: 60%"
+              ></ion-skeleton-text>
+            </p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>
+  <div class="customerfootertop">
+    <div class="left" (click)="yougive(customerdata.customer_id)">
+      You Gave <i class="fa fa-inr" aria-hidden="true"></i>
+    </div>
+    <div class="right" (click)="yougot(customerdata.customer_id)">
+      You Got <i class="fa fa-inr" aria-hidden="true"></i>
+    </div>
+  </div>
+  <!-- <app-footer></app-footer> -->
+</div>

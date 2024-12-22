@@ -1,0 +1,42 @@
+<div class="wrapper" >
+  <div class="overlay"></div>
+  <div id="content">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <div class="leftbar d-flex align-items-center">
+          <div (click)="goBack()">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+          </div>
+          <div class="name text-left appsnametop">
+            &nbsp; {{ categoryName }}
+          </div>
+        </div>
+        <ul class="homeheader navbar-nav ml-auto">
+          <!-- Additional navbar content can go here -->
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<div class="mainbody">
+
+<div class="poster" *ngIf="!loading">
+  <div class="section1">
+       <div class="section1inner" >
+      <ul>
+        <li  *ngFor="let poster of posters">
+          <img [src]="'https://orderbharat.com/uploads/posters/' + poster.poster_name" alt="" width="150px">
+          <div class="share" (click)="posterview(poster.order_bharat_posters_id)">
+            <i class="fa fa-share" aria-hidden="true"></i> Share
+          </div>
+        </li>       
+      </ul>
+    </div>
+  </div>    
+</div>
+
+<div class="loader" *ngIf="loading"></div>
+</div>
+
+<app-footer></app-footer>

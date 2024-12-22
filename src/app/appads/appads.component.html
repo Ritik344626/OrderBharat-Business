@@ -1,0 +1,130 @@
+<app-subheader></app-subheader>
+<div class="mainbody step1">
+  <!-- <div class="section">
+    <div class="box1">
+      <h4></h4>
+      <p>Total Ads Exp.</p>
+    </div>
+    <div class="box2">
+      <h4>{{ otherdata.totalclick }}</h4>
+      <p>Total Click</p>
+    </div>
+    <div class="box3">
+      <h4>{{ otherdata.addamount }}</h4>
+      <p>Total Order</p>
+    </div>
+  </div> -->
+
+  <h6>Ad Campaign List:</h6>
+
+  <!-- <div class="section2">
+        <div class="box1">
+         <p>Name</p> 
+        </div>
+        <div class="box2">        
+         <p>Exp.</p> 
+        </div>
+        <div class="box2">
+          <p>Click</p>
+        </div>
+        <div class="box2">
+          <p>Status</p>
+        </div>
+      </div>
+
+      <div class="section3"  *ngFor="let data of adslist">
+        <div class="box1">
+         <p>{{ data.add_name}}</p> 
+        </div>
+        <div class="box2">        
+         <p>550</p> 
+        </div>
+        <div class="box2">
+          <p>59</p>
+        </div>
+        <div class="box2">
+          <p>Active</p>
+        </div>
+      </div> -->
+
+  <div class="table-responsive" *ngIf="loaded">
+    <table class="table" *ngIf="adslist.length > 0">
+      <thead>
+        <tr>
+          <th scope="col">No.</th>
+          <th scope="col">Details</th>
+          <!-- <th scope="col">Days No.</th> -->
+          <!-- <th scope="col">Net Amount</th>
+
+          <th scope="col">Redius (km)</th> -->
+          <th scope="col">Status</th>
+
+          <!-- <th scope="col">Heading</th>
+              <th scope="col">Heading</th>
+              <th scope="col">Heading</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of adslist; let i = index">
+          <td>
+           {{ i + 1 }} <!-- Adding 1 to index to start from 1 instead of 0 -->
+          </td>
+          <td>
+            <strong
+              (click)="adsdetails(data.order_bharat_ads_details_id)"
+              class="cursor-pointer"
+            >
+              Start Time: {{ data.start_date }}</strong
+            ><br />
+            End Time: {{ data.end_date }}<br />
+            Days Number: {{ data.days_number }}<br />
+            Amount: &#8377; {{ data.maxprice }}<br />
+            Redius (km): {{ data.redius }}
+          </td>
+          <!-- <td>{{ data.end_date }}</td> -->
+          <!-- <td>{{ data.days_number }}</td> -->
+          <!-- <td>{{ data.maxprice }}</td>
+          <td>{{ data.redius }}</td> -->
+
+          <td>
+            <div *ngIf="data.status == 1">Pending</div>
+            <div *ngIf="data.status == 2">Approved</div>
+            <div *ngIf="data.status == 3">Suspended</div>
+            <div *ngIf="data.status == 4">Ads Pused</div>
+          </td>
+          <!--  <td>Cell</td>
+              <td>Cell</td>
+              <td>Cell</td>
+              <td>Cell</td> -->
+        </tr>
+        <tr></tr>
+      </tbody>
+    </table>
+    <div *ngIf="adslist.length == 0">No Record</div>
+  </div>
+  <ion-list style="width: 100%" *ngIf="!loaded">
+    <ion-item>
+      <ion-skeleton-text
+        [animated]="true"
+        style="width: 100%"
+      ></ion-skeleton-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-skeleton-text
+        [animated]="true"
+        style="width: 100%"
+      ></ion-skeleton-text>
+    </ion-item>
+  </ion-list>
+</div>
+<!-- <div class="addpurched">
+  <a routerLink="/adsbalanceadd" ><i class="fa fa-file" aria-hidden="true"></i> Add Balance
+  </a>
+</div> -->
+<div class="addcustomerhome">
+  <a routerLink="/appadsadd"
+    ><i class="fa fa-plus" aria-hidden="true"></i> Add Ads</a
+  >
+</div>
+<app-footer></app-footer>

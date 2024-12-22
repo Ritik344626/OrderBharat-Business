@@ -1,0 +1,85 @@
+<app-subheader></app-subheader>
+<div class="mainbody">
+  <!-- <div class="topset">
+          <h5>{{ customerdata.customer_name }} <i class="fa fa-pencil" aria-hidden="true" (click)="editcustomer(customerdata.customer_id)"></i> </h5>
+         
+       
+        </div> -->
+  <div class="customerlist">
+    <div class="homesec2 search">
+      <div class="form-group has-search searchfull">
+        <span class="fa fa-search form-control-feedback"></span>
+        <input type="text" class="form-control" placeholder="Order Id"
+        (input)="searchorderlist($event)"
+        
+        />
+      </div>
+      <ul></ul>
+    </div>
+    <div *ngIf="loaded">
+      <ul ngif="salesdata.length>0">
+        <li>
+          <div class="box1">
+            <h5>Order Id</h5>
+          </div>
+          <div class="box1">
+            <h5>Date</h5>
+          </div>
+          <div class="box1">
+            <h5>Status</h5>
+          </div>
+          <div class="box2 green">
+            <h5>Amount</h5>
+          </div>
+        </li>
+
+        <li *ngFor="let data of salesdata">
+          <div class="box1">
+            <p (click)="vieworders(data.order_id)">
+              <strong>{{ data.reference_no }}</strong>
+            </p>
+          </div>
+          <div class="box1">
+            <p>{{ data.date | date : "dd-MM-yyyy" }}</p>
+          </div>
+          <div class="box1">
+            <p *ngIf="data.delivery_status == 1">Order Placed</p>
+            <p *ngIf="data.delivery_status == 2">Out of Stock</p>
+            <p *ngIf="data.delivery_status == 3">Pending Payment</p>
+            <p *ngIf="data.delivery_status == 4">Payment Recived</p>
+            <p *ngIf="data.delivery_status == 5">Cancelled</p>
+            <p *ngIf="data.delivery_status == 6">Processed</p>
+            <p *ngIf="data.delivery_status == 7">Shipped</p>
+            <p *ngIf="data.delivery_status == 8">Delivered</p>
+            <p *ngIf="data.delivery_status == 9">Return Process</p>
+            <p *ngIf="data.delivery_status == 10">Exchanged</p>
+            <p *ngIf="data.delivery_status == 11">Refunded</p>
+
+            <!-- {{ data.delivery_status}}             -->
+          </div>
+          <div class="box2 green">
+            <p class="green">&#8377; {{ data.order_value }}</p>
+          </div>
+        </li>
+      </ul>
+      <div *ngIf="salesdata.length == 0">No Record Founded</div>
+    </div>
+    <ion-list *ngIf="!loaded">
+      <ion-item>
+        <ion-skeleton-text
+          [animated]="true"
+          style="width: 100%"
+        ></ion-skeleton-text>
+      </ion-item>
+
+      <ion-item>
+        <ion-skeleton-text
+          [animated]="true"
+          style="width: 100%"
+        ></ion-skeleton-text>
+      </ion-item>
+    </ion-list>
+  </div>
+</div>
+
+<app-footer></app-footer>

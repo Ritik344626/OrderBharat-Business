@@ -1,0 +1,17 @@
+<app-subheader></app-subheader>
+<div class="mainbody">
+   <div class="customerlist customersale">
+
+    <ul>
+      <li  *ngFor="let data of notifactiondata">
+        <p><b>{{ data.subject }}</b> - <span> {{data.date }}</span> </p>  
+        <p>{{ data.message }}
+        </p>  
+        
+       
+      </li>
+    </ul>
+  </div>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,85 @@
+<app-subheader></app-subheader>
+
+<div class="mainbody">
+  <div class="businesscategorylist">
+    <form class="businessquery">
+      <h6>What do you sell?</h6>
+
+      <!-- <input type="text" name="businessphone"  [(ngModel)]="businessphone"  placeholder="Business Phone" class="form-control" > -->
+      <ul class="list">
+
+           <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" value="1" name="gstin" checked  [(ngModel)]="mobile_business_category" >
+         
+         
+          <input class="form-check-input" type="radio" value="1" name="gstin" checked [(ngModel)]="mobile_business_category">
+
+          <label class="form-check-label" for="inlineCheckbox1">Kirana</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" value="2" name="gstin"  [(ngModel)]="mobile_business_category" >
+          <label class="form-check-label" for="inlineCheckbox1">Beauty, Salon & Spa</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" value="3" name="gstin"  [(ngModel)]="mobile_business_category" >
+          <label class="form-check-label" for="inlineCheckbox1">Doctors</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" value="4" name="gstin" [(ngModel)]="mobile_business_category" >
+          <label class="form-check-label" for="inlineCheckbox1">Services</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" value="5" name="gstin" [(ngModel)]="mobile_business_category" >
+          <label class="form-check-label" for="inlineCheckbox1">Food Order</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" value="6" name="gstin" [(ngModel)]="mobile_business_category" >
+          <label class="form-check-label" for="inlineCheckbox1">Apparel</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" value="7" name="gstin" [(ngModel)]="mobile_business_category" >
+          <label class="form-check-label" for="inlineCheckbox1">Electronics</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" value="8" name="gstin" [(ngModel)]="mobile_business_category" >
+          <label class="form-check-label" for="inlineCheckbox1">Financial</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" value="9" name="gstin" [(ngModel)]="mobile_business_category" >
+          <label class="form-check-label" for="inlineCheckbox1">Gift Shop</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" value="10" name="gstin" [(ngModel)]="mobile_business_category" >
+          <label class="form-check-label" for="inlineCheckbox1">Jewellery</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" value="11" name="gstin" [(ngModel)]="mobile_business_category" >
+          <label class="form-check-label" for="inlineCheckbox1">Education</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" value="12" name="gstin" [(ngModel)]="mobile_business_category" >
+          <label class="form-check-label" for="inlineCheckbox1">Computer</label>
+        </div>
+      
+      <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" value="13" name="gstin" [(ngModel)]="mobile_business_category" >
+          <label class="form-check-label" for="inlineCheckbox1">Tour & Travel</label>
+        </div>
+      <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" value="14" name="gstin" [(ngModel)]="mobile_business_category" >
+          <label class="form-check-label" for="inlineCheckbox1">Fitness</label>
+        </div>
+      <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" value="15" name="gstin" [(ngModel)]="mobile_business_category" >
+          <label class="form-check-label" for="inlineCheckbox1">Other</label>
+        </div>	  
+      </ul>
+
+      <div class="fullbutton">
+        <input type="submit" value="Save"  (click)="submitquery()"/>
+      </div>
+    </form>
+  </div>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,87 @@
+<app-subheader></app-subheader> 
+<div class="mainbody">
+  <div class="topset">
+    <h5>{{ customerdata.customer_name }}</h5>
+
+    <div class="">
+      <form (ngSubmit)="addyoupay(yougive)" #yougive="ngForm">
+  
+        <div class="set1">
+          <ion-input
+          label="Amount"
+          labelPlacement="floating"
+          type="text"
+          name="amount"
+          [ngModel]
+          id="amount"
+          class="input-field"
+        ></ion-input>
+
+          <!-- <div class="form-group">
+            <input
+              type="text"
+              name="amount"
+              class="form-control"
+              id="name"
+              ngModel
+              aria-describedby="emailHelp"
+              placeholder="Amount"
+            />
+          </div> -->
+          <ion-list>
+            <ion-item>
+              <ion-select label="Payment Type" [(ngModel)]="yougivetype" name="yougivetype">
+                <ion-select-option value="Cash">Cash</ion-select-option>
+                <ion-select-option value="Bank">Bank</ion-select-option>
+                <ion-select-option value="Online">Online</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+
+          <!-- <div class="form-group">
+            <select class="form-control" [(ngModel)]="yougivetype" name="yougivetype">
+              <option value="0" selected>----Select----</option>
+              <option value="Cash">Cash</option>
+              <option value="Bank">Bank</option>   
+              <option value="Online">Online</option>        
+            </select>
+          </div>   -->
+  
+        </div>
+
+        <ion-input
+        label="Note"
+        labelPlacement="floating"
+        type="text"
+        name="note"
+        [ngModel]
+        id="note"
+        class="input-field"
+      ></ion-input>
+        
+             <!-- <div class="form-group">
+          <input
+            type="text"
+            name="note"
+            class="form-control"
+            id="mobile"
+            ngModel
+            aria-describedby="emailHelp"
+            placeholder="Note"
+          />
+        </div> -->
+  
+   
+  
+        <div class="fullwidthsubmit">
+          <!-- <input _ngcontent-ng-c3633421285="" type="submit" value="Update Status" class="submit"> -->
+
+          <input type="submit" value="You Give" class="submit" /><!--
+          <input type="submit" value="Save &amp; Sale" class="savesale" />-->
+        </div>
+      </form>
+    </div>
+  </div>
+ 
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,110 @@
+.customerlist li h5 {
+    font-size: 13px;
+}
+
+.customersale {
+    margin-top: 45px !important;
+    margin-bottom: 110px;
+}
+.imagebox{
+    // height: 80px;
+    // background-color: black;
+    // width: 20%;
+    margin-bottom: 11px;
+    margin-right: 10px;
+}
+.customerlist li h5{
+    font-size: 16px;
+}
+.customerlist li p .saleprice{color: #097500; margin-right: 5px;}
+.customerlist li p .mrp{color: #750000; margin-right: 5px; text-decoration: line-through;}
+
+    .customerlist li .box1 {
+        width: 65%;
+    }
+    .customerlist li .box1 h5{cursor: pointer;}
+
+    .buttombar{display: flex;
+        position: fixed;
+        z-index: 50;
+        width: 92%;
+        bottom: 85px;}
+.buttombar .box{width: 100%; font-size: 16px; text-align: center;cursor: pointer;}
+.buttombar .box1{background-color: darkgreen;
+    color: white;
+    margin-right: 2px;
+    padding: 8px 0px;
+    width: 56px;
+    right: 0px;
+    position: fixed;
+    bottom: 80px;
+    border: 0px;
+    font-size: 27px; -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+}
+.category{width: 100%;
+    clear: both;
+    position: fixed;
+    overflow: hidden; background: #fff;}
+.category li{float: left;
+    font-size: 14px;
+    }
+    .category li a{border-bottom: white solid 2px;padding: 4px 10px; margin-bottom: 10px;}
+    .category li a.active{border-bottom: rgb(119, 7, 7) solid 2px;}
+ul.productlist{margin-top: 20px; margin-bottom: 50px;}
+.name{display: flex;}
+.name h5{width: 75%;
+    margin-top: 5px;
+    font-size: 16px;}
+    .name .like{display: flex;}
+.name .likebox{background-color: #004bbf;
+    color: white;
+    padding: 3px 8px;}
+    .likenumber {
+        font-size: 14px;
+        padding: 5px;
+    }
+
+    .productlist .rightproduct{display: flex; width: 50%;}
+    .productlist .rightproduct .btn {
+        padding: 0px 5px;
+        height: 32px;
+        background: #1fa67a;
+        color: #fff;
+      }
+
+      .productlist .box1 h5{font-size: 15px; margin-bottom: 0px;}
+      .productlist .rightproduct input[type="text"] {height: 34px; text-align: center; font-size: 14px; padding: 2px;}
+      .name .like{display: flex;}
+      .name .like{ background-color: #004bbf;
+        color: white;
+        padding: 3px 21px;
+        cursor: pointer;       
+        text-align: center; height: 33px}
+      .name .like .fa{padding-right: 5px; line-height: 24px; }
+    //   .imagebox img{width: 100%; }
+      .customerlist li p {
+        font-size: 15px;
+        margin-bottom: 2px;
+    }
+
+    .name .info{width: 82%;}
+    .name .info p{font-size: 12px; color: #000; margin-bottom: 2px;;}
+    .name .info h5{margin-bottom: 0px;}
+
+    h4{font-size: 18px;}
+    .imagebox img {
+        padding: 3px;
+        border-style: dashed;
+        border-width: 2px; /* Adjust this value to change the spacing */
+        /* You can also specify border-color if needed */
+        border-color: #097500;
+      }
+    .details h4{margin-top: 13px;
+        margin-bottom: 2px;
+        font-size: 16px;}
+    p.recent{color: #000; font-size: 14px;}
+     
+      
+   

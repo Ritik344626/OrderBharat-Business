@@ -1,0 +1,79 @@
+<app-subheader></app-subheader>
+<div class="mainbody">
+  <div class="customeradd">
+    <!-- <button (click)="import()" class="btn btn-info"><i class="fa fa-address-book" aria-hidden="true"></i>
+       Import Contacts</button> -->
+    <!-- <div class="clear"></div> -->
+    <form (ngSubmit)="addcustomer(customeradd)" #customeradd="ngForm">
+      <ion-input
+        label="Customer Name"
+        labelPlacement="floating"
+        type="text"
+        name="name"
+        ngModel
+        id="name"
+      ></ion-input>
+
+      <ion-input
+        label="Mobile Number (Optional)"
+        labelPlacement="floating"
+        [counter]="true"
+        maxlength="10"
+        type="text"
+        name="mobile"
+        ngModel
+        id="mobile"
+      ></ion-input>
+
+      <ion-input
+        label="Email ID (Optional)"
+        labelPlacement="floating"
+        type="email"
+        name="email"
+        ngModel
+        id="email"
+      ></ion-input>
+
+      <ion-list>
+        <ion-item>
+          <ion-select
+            label="Select State"
+            placeholder="State Name"
+            name="state"
+            ngModel
+            id="state"
+          >
+            <ion-select-option
+              *ngFor="let data of stateslistdata"
+              value="{{ data.id }}"
+            >
+              {{ data.name }}</ion-select-option
+            >
+            <!-- <ion-select-option value="banana">Banana</ion-select-option>
+            <ion-select-option value="orange">Orange</ion-select-option> -->
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+      <ion-input
+        label="Address (Optional)"
+        labelPlacement="floating"
+        type="text"
+        name="address"
+        ngModel
+        id="address"
+      ></ion-input>
+
+      <div class="fullbutton">
+        <input
+          type="submit"
+          value="Save"
+          (click)="setsubmittype(1)"
+          class="submit"
+        />
+        <!-- <input type="submit" value="Save &amp; Sale" (click)="setsubmittype(2)" class="savesale" /> -->
+      </div>
+    </form>
+  </div>
+</div>
+<app-footer></app-footer>

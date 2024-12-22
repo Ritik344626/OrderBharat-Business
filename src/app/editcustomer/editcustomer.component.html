@@ -1,0 +1,70 @@
+<app-subheader></app-subheader>
+<div class="mainbody">
+  <div class="customeradd">
+    <form (ngSubmit)="editcustomerdetail(customeradd)" #customeradd="ngForm">
+      <ion-input
+        label="Customer Name"
+        labelPlacement="floating"
+        type="text"
+        name="name"
+        [ngModel]="customer_name"
+        id="name"
+      ></ion-input>
+
+      <ion-input
+        label="Mobile Number (Optional)"
+        labelPlacement="floating"
+        [counter]="true"
+        maxlength="10"
+        type="text"
+        name="mobile"
+        [ngModel]="mobile"
+        id="mobile"
+      ></ion-input>
+
+      <ion-input
+        label="Email ID (Optional)"
+        labelPlacement="floating"
+        type="email"
+        name="email"
+        [ngModel]="email"
+        id="email"
+      ></ion-input>
+
+      <ion-input
+        label="Address (Optional)"
+        labelPlacement="floating"
+        type="text"
+        name="address"
+        [ngModel]="address"
+        id="address"
+      ></ion-input>
+
+      <ion-list>
+        <ion-item>
+          <ion-select
+            label="Select State"
+            placeholder="State Name"
+            name="state"
+            [ngModel]="state"
+            id="state"
+          >
+            <ion-select-option
+              *ngFor="let data of stateslistdata"
+              [selected]="data.id === state"
+              value="{{ data.id }}"
+            >
+              {{ data.name }}</ion-select-option
+            >
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+      <div class="fullbutton">
+        <input type="submit" value="Save" class="submit" />
+        <!-- <input type="submit" value="Save &amp; Sale" class="savesale" /> -->
+      </div>
+    </form>
+  </div>
+</div>
+<app-footer></app-footer>

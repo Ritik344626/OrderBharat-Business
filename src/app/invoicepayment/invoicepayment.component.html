@@ -1,0 +1,48 @@
+<app-subheader></app-subheader>
+<div class="mainbody">
+  <div id="invoice-POS" *ngFor="let data of salesdata">
+    <div id="top">
+      <div class="info">
+             <h6>Sales Invoice</h6>
+             
+              <div style="text-align:left">
+                  
+                  <div id="mid">
+                    <div class="info">
+                  
+                    ------------------------------
+                              <h5>{{ data.customer_name }} </h5>
+                              {{ data.customer_address}}
+                             
+                    </div>
+                  </div>          
+                  ------------------------------
+                  <p>Invoice Number: <strong>{{ data.invoice_no }}</strong></p>
+                  
+                  <p>Date:  <strong>{{ data.date }} </strong></p> 
+                  <div class="form-group">
+                    <label for="gstregtype">Total</label>
+                    <input type="text" name="total"  [(ngModel)]="total"  placeholder="{{ data.total}}" class="form-control" >
+                  </div>       
+                     <div class="form-group">
+                        <label for="gstregtype">Payment Type</label>
+                        <select class="form-control" id="paymenttype" name="paymenttype"  [(ngModel)]="paymenttype">
+                           <option value="" selected>----Select----</option>
+                           <option value="cash">Cash </option>
+                           <option value="bank">Bank </option>
+                           <option value="online">Online </option>
+                         </select>
+                         </div>
+
+                         <input type="button" (click)="submitquery()" value="Submit" class="submit" />
+                              </div>   
+      </div>
+  
+    <hr>
+  
+  </div>
+  </div>
+
+</div>
+     
+   <app-footer></app-footer>

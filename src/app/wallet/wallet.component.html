@@ -1,0 +1,44 @@
+<app-subheader></app-subheader>
+<div class="mainbody">
+  <div class="customeradd">
+    
+
+      <div class="sec1">
+        <!-- <label for="exampleInputEmail1">Wallet</label> -->
+        <h5> Wallet: <i class="fa fa-rupee"></i>&nbsp;{{ wallet }}</h5> <input type="button" [disabled]="isw" value="Withdraw Wallet" class="btn btn-outline-info" (click)="addwallet()" />
+        <!-- <div class="text-success fa-3x">Wallet <i class="fa fa-rupee"></i>&nbsp;{{ wallet }}</div> -->
+      </div>
+      <!-- <small id="emailHelp" class="form-text text-muted text-center">Optional</small><br/>-->
+     
+      <!-- <hr />
+      <div class="fullwidthsubmit text-center">
+        <input type="button" [disabled]="isw" value="Withdraw Wallet" class="btn btn-outline-info" (click)="addwallet()" />
+        <input type="submit" value="Save &amp; Sale" class="savesale" />
+      </div> -->
+
+     
+<table class="table table-bordered">
+  <tr><th>
+     <strong>Date</strong>  
+    </th>
+    <th>
+      <strong> Amount</strong>  
+    </th>
+  </tr>
+
+<tr  *ngFor="let data of wallet_data">
+  
+    <td>{{ data.time }}</td>    
+    <td >{{ data.amount}}
+    </td>
+   
+  </tr>
+
+</table>
+     
+    
+
+    
+  </div>
+</div>
+<app-footer></app-footer>

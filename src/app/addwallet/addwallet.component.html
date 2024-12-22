@@ -1,0 +1,26 @@
+<app-subheader></app-subheader>
+<div class="mainbody">
+  <div class="customeradd">
+
+
+    <div class="form-group text-center font-weight-bold">
+      <label for="exampleInputEmail1">Wallet</label>
+      <div class="text-success"><i class="fa fa-rupee"></i>&nbsp;<input class="text" placeholder="Enter Amount.." type="text" name="amount" id="amount" [(ngModel)]="amount"/></div>
+    </div>
+   <small id="addwallt" class="form-text text-muted text-center"></small><br/>
+
+    <hr />
+    <div class="fullwidthsubmit text-center">
+      <input type="button" value="Withdraw Balance" class="btn btn-info" (click)="addwallet()" /><!--
+              <input type="submit" value="Save &amp; Sale" class="savesale" />-->
+    </div>
+
+
+
+
+
+
+
+  </div>
+</div>
+<app-footer></app-footer>

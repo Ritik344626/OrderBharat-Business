@@ -1,0 +1,211 @@
+<app-subheader></app-subheader>
+    <div class="mainbody step1">  
+      <h6>Business Name: {{ businessdetails.name }}</h6> 
+      <hr/>    
+        <form>
+          <!-- <div class="form-group">
+            <input type="text" name="ads_name"  [(ngModel)]="ads_name"  placeholder="Ads Name" class="form-control" >
+          </div> -->
+         
+          <div class="set1">
+           <h6>Start Date :</h6> 
+          <div class="form-group">
+            <ion-datetime-button  datetime="start_date"></ion-datetime-button>
+
+<ion-modal [keepContentsMounted]="true">
+  <ng-template>
+    <ion-datetime id="start_date"  presentation="date"  displayFormat="DD/MM/YYYY"
+    pickerFormat="DD/MM/YYYY"></ion-datetime>
+  </ng-template>
+</ion-modal>
+            <!-- <ion-datetime name="start_date"  [(ngModel)]="start_date"  placeholder="Start Date"></ion-datetime> -->
+            <!-- <input type="date" name="start_date"  [(ngModel)]="start_date"  placeholder="Start Date" class="form-control" > -->
+          </div>
+        </div>
+
+
+        <div class="set1">
+          <h6>End Date :</h6> 
+          <div class="form-group">
+
+              <ion-datetime-button datetime="end_date" ></ion-datetime-button>
+            <ion-modal [keepContentsMounted]="true">
+              <ng-template>
+                <ion-datetime id="end_date"  presentation="date"  displayFormat="DD/MM/YYYY"
+                pickerFormat="DD/MM/YYYY"></ion-datetime>
+              </ng-template>
+            </ion-modal>
+            <!-- <ion-datetime name="end_date"  [(ngModel)]="end_date"  placeholder="End Date" ></ion-datetime> -->
+            <!-- <input type="date" name="end_date"  [(ngModel)]="end_date"  placeholder="End Date" class="form-control" > -->
+          </div>
+       </div>
+
+       <!-- <h6>PPC Price: (Min. &#8377; 5/-)</h6>
+       <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" value="1" name="maxprice" [(ngModel)]="maxprice" >
+        <label class="form-check-label" for="inlineCheckbox1">Maximum Bid Price</label>
+      </div> -->
+<hr>
+      <h6>Location : (in Km with your Pincode) </h6> 
+
+      <ion-input
+      id="open-modal"
+      expand="block"
+      class="ion-padding"
+      search-icon="search-circle"
+      [value]="query"
+      placeholder="Search for area, street..."
+      type="text"
+      required
+    ></ion-input>
+<hr>
+<ion-range dualKnobs="true" [(ngModel)]="kmRange" min="1" max="50" step="1">
+  <ion-label slot="start">{{ kmRange.lower }} km</ion-label>
+  <ion-label slot="end">{{ kmRange.upper }} km</ion-label>
+</ion-range>
+<!-- <ion-item>
+  <ion-label>Price range:</ion-label>
+  <ion-rangeslider
+    [min]="100"
+    [max]="500"
+    [(ngModel)]="priceRange"
+  ></ion-rangeslider>
+</ion-item> -->
+
+<!-- <ion-content class="ion-padding">
+  <ion-item>
+    <ion-label>Select Range</ion-label>
+    <ion-range [(ngModel)]="selectedRange" min="0" max="100" pin="true" color="primary">
+      <ion-label slot="start">0</ion-label>
+      <ion-label slot="end">100</ion-label>
+    </ion-range>
+  </ion-item>
+
+  <ion-button (click)="logSelectedRange()">Log Selected Range</ion-button>
+</ion-content> -->
+
+      <!-- <h6>Location : (in Km with your Pincode) </h6> 
+        <div class="form-group">
+          <input type="text" name="location_km"  [(ngModel)]="location_km"  placeholder="Km" class="form-control" >
+        </div>
+    
+
+          <h6>Ads Type</h6>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" value="1" name="adsin" (change)="chkgstin()"  [(ngModel)]="adsin" >
+            <label class="form-check-label" for="inlineCheckbox1">Catelog Ads</label>
+          </div>
+
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" value="2" name="adsin" (change)="chkgstin()" checked [(ngModel)]="adsin">
+            <label class="form-check-label" for="inlineCheckbox2">Enquiry Ads</label>
+          </div>
+
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" value="3" name="adsin" (change)="chkgstin()" checked [(ngModel)]="adsin">
+            <label class="form-check-label" for="inlineCheckbox2">Call Ads</label>
+          </div>
+
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" value="4" name="adsin" (change)="chkgstin()" checked [(ngModel)]="adsin">
+            <label class="form-check-label" for="inlineCheckbox2">App Install Ads</label>
+          </div>
+          <hr/> -->
+          
+          <!--   <div *ngIf="adsinv" class="form-group">
+          <input
+              type="text"
+              name="shopname"             
+              class="form-control text-center"
+              id="inputEmail4"
+              placeholder="Shop Name"
+              [(ngModel)]="shopname" disabled=""
+            />
+           <h6>Business Name: {{ businessdetails.name }}</h6> 
+          </div>   -->
+<!-- 
+          <div *ngIf="adsinv1" class="form-group">
+           <h6>Phone: {{ businessdetails.phone }}</h6> 
+          </div> 
+          
+          
+          <div *ngIf="adsinv2" class="form-group">
+            <input
+              type="text"
+              name="appsname"             
+              class="form-control text-center"
+              id="inputEmail4"
+              placeholder="Apps Name"
+              [(ngModel)]="appsname" 
+            />
+          </div> 
+
+          
+          <div *ngIf="adsinv2" class="form-group">
+            <input
+              type="text"
+              name="appslink"             
+              class="form-control text-center"
+              id="inputEmail4"
+              placeholder="Apps Link"
+              [(ngModel)]="appslink" 
+            />
+          </div>  -->
+          
+          
+             <hr/>
+             <!-- <h6>Image Size (420px x 70px)</h6>
+            <div class="ads"><img src="assets/images/add-banner-480x70.jpg" />   </div>   -->
+            
+            <!-- <div  *ngIf="adsinv3">
+            <hr/>
+             <h6>Image Size (420px x 186px)</h6>
+            <div class="enquiry"><img src="assets/images/enquirybanner1.jpg" />   </div> 
+</div> -->
+         
+          <div class="fullbutton">
+            <input type="submit" value="Continue"  (click)="submitquery()"/>
+          </div>
+        </form>
+        <ion-modal #modal trigger="open-modal">
+          <ng-template>
+            <ion-header>
+              <ion-toolbar>
+                <ion-searchbar
+                  animated="true"
+                  class="ion-padding"
+                  [value]="query"
+                  placeholder="Search for area, street..."
+                  type="text"
+                  show-clear-button="always"
+                  (ionInput)="onSearchChange($event)"
+                ></ion-searchbar>
+                <ion-buttons slot="end">
+                  <ion-button (click)="modal.dismiss()">Close</ion-button>
+                </ion-buttons>
+              </ion-toolbar>
+            </ion-header>
+            <ion-content>
+              <ion-list *ngIf="places?.length > 0">
+                <ion-item
+                  id="open-toast"
+                  expand="block"
+                  *ngFor="let place of places"
+                  (click)="selectedAddress(place); modal.dismiss()"
+                  class="ion-margin-top"
+                >
+                  <ion-icon name="location-outline" slot="start"></ion-icon>
+                  <ion-label>
+                    {{ place?.title }}
+                    <p>
+                      <ion-text> {{ place?.address }} </ion-text>
+                    </p>
+                  </ion-label>
+                </ion-item>
+              </ion-list>
+            </ion-content>
+          </ng-template></ion-modal>
+      
+    </div>
+   
+    <app-footer></app-footer>

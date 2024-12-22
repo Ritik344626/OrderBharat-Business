@@ -1,0 +1,35 @@
+.businessquery{
+    margin: 45px 0 0px;
+  }
+  .clear{width: 100%; height: 20px;}
+
+  ion-searchbar.custom {
+    --background: #e7e9ec;
+    --color: #2e2e2e;
+    --placeholder-color: #323131;
+    --icon-color: #3b3b3b;
+    --border-radius: 14px;
+  }
+  
+  ion-searchbar.md.custom {
+    --box-shadow: unset;
+  }
+
+
+  h2.style-four {
+    width: 100%; 
+    text-align: center; 
+    border-bottom: 1px solid #4d4d4d; 
+    line-height: 0.1em;
+    margin: 10px 0 20px; 
+ } 
+ 
+ h2.style-four span { 
+  font-size: 16px;
+     background:#fff; 
+     color: #4d4d4d;
+     padding:0 10px; 
+ }
+ .input-field{
+  border-bottom: solid 1px #dddada !important;
+}

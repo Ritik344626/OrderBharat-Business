@@ -1,0 +1,108 @@
+<app-subheader></app-subheader>
+<div class="mainbody">
+    <div *ngIf="loaded">
+      <div class="" *ngIf="image">
+        <div class="imageframe">
+          <div class="uploadimage" (click)="setOpen(true)">
+            <i class="fa fa-image" aria-hidden="true"></i>
+          </div>
+          <img height="50%" *ngIf="image" src="{{ image }}" />
+        </div>
+        <!--
+        <img src="https://gbosss.com/assets/images/gallery/{{ data.image_name }}">
+        <div class="imageframeshort">
+        <div class="shortimage"></div>
+        <div class="shortimage"></div>
+        <div class="shortimage"></div>
+      </div>-->
+      
+      </div>
+      <div *ngIf="categorydata.length == 0">No Record Founded</div>
+  
+      <ion-modal class="custom-modal" [isOpen]="isModalOpen">
+        <ng-template>
+          <ion-header>
+            <ion-toolbar>
+              <ion-title>Upload Category Image</ion-title>
+              <ion-buttons slot="end">
+                <ion-button (click)="setOpen(false)">Close</ion-button>
+              </ion-buttons>
+            </ion-toolbar>
+          </ion-header>
+          <ion-content class="ion-padding">
+            <ion-card>
+              <ion-card-content>
+                <form (ngSubmit)="onSubmit()">
+                  <label for="fileInput" class="custom-file-upload">
+                    <span>Select Category Image</span>
+                  </label>
+                  <input
+                    type="file"
+                    id="fileInput"
+                    (change)="onFileSelected($event)"
+                    accept=".jpg, .png"
+                    style="display: none"
+                  />
+                  <br />
+                  <button type="submit" class="btn btn-success">
+                    Upload Image
+                  </button>
+                </form>
+              </ion-card-content>
+            </ion-card>
+          </ion-content>
+        </ng-template>
+      </ion-modal>
+    </div>
+    
+    <ion-list style="padding-top: 50px" *ngIf="!loaded">
+      <ion-grid>
+        <ion-row>
+          <ion-col
+            ><ion-thumbnail style="height: 300px; width: 100%">
+              <ion-skeleton-text
+                [animated]="true"
+              ></ion-skeleton-text> </ion-thumbnail
+          ></ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-item>
+        <ion-label>
+          <h3>
+            <ion-skeleton-text
+              [animated]="true"
+              style="width: 80%"
+            ></ion-skeleton-text>
+          </h3>
+          <p>
+            <ion-skeleton-text
+              [animated]="true"
+              style="width: 60%"
+            ></ion-skeleton-text>
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-col
+          ><ion-thumbnail style="height: 50px; width: 100%">
+            <ion-skeleton-text
+              [animated]="true"
+            ></ion-skeleton-text> </ion-thumbnail
+        ></ion-col>
+        <ion-col
+          ><ion-thumbnail style="height: 50px; width: 100%">
+            <ion-skeleton-text
+              [animated]="true"
+            ></ion-skeleton-text> </ion-thumbnail
+        ></ion-col>
+        <ion-col
+          ><ion-thumbnail style="height: 50px; width: 100%">
+            <ion-skeleton-text
+              [animated]="true"
+            ></ion-skeleton-text> </ion-thumbnail
+        ></ion-col>
+      </ion-item>
+    </ion-list>
+  </div>
+  
+<app-footer></app-footer>

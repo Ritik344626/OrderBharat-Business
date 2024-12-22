@@ -1,0 +1,60 @@
+<div class="wrapper">
+  <!-- Sidebar  -->
+  <div class="overlay"></div>
+  <div id="content">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <div id="sidebarCollapse"  (click)="friends()"><i class="fa fa-arrow-left" aria-hidden="true"></i></div>
+        <div class="name text-left appsnametop">&nbsp;
+          <div class="img_cont"> <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img"> </div>
+          <div class="user_info"> <span>@{{ visitorfrienddata.name.substring(0, 6)}}</span>
+            <p>{{ visitorfrienddata.name }} is online</p>
+          </div>
+        </div>
+        <ul class="homeheader">
+          <li>
+            <div class="dropdown show  dropleft">
+              <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+              </a>
+            
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="#">Ok</a>
+                <a class="dropdown-item" href="#">Block</a>
+                <a class="dropdown-item" href="#">Report</a>
+              </div>
+            </div>
+             </li>
+        </ul>       
+      </div>
+    </nav>
+  </div>
+</div>
+<div class="mainbody">
+  <div class="shoplist">
+    <div class="msg_card_body">
+
+	<ul>
+      <li *ngFor="let data of massagedata">  
+        <div class="d-flex justify-content-start mb-4">
+          <div class="msg_cotainer_send"> {{ data.massage}} - {{data.date * 1000 }} </div>
+          <!-- <span class="msg_time_send">9:05 AM, Today</span> -->
+          </div>        
+      </li>
+    </ul>
+	
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <form (ngSubmit)="addchatmsg(chatdetails)" #chatdetails="ngForm">
+      <div class="input-group">
+    <textarea name="chatmsg" ngModel aria-describedby="emailHelp" class="form-control type_msg" placeholder="Type your message..."></textarea>
+    <div class="input-group-append">
+      <button  type="submit" class="input-group-text send_btn"><i class="fa fa-location-arrow"></i></button>
+     </div>
+  
+  </div>
+</form>
+</div>

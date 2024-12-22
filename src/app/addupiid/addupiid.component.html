@@ -1,0 +1,27 @@
+<app-subheader></app-subheader>
+
+<div class="mainbody">
+  <div class="businesscategorylist">
+    <form class="businessquery" (ngSubmit)="submitquery(prdctedit)" #prdctedit="ngForm">
+<!-- <label>UPI ID</label> -->
+
+<ion-input label="Business UPI ID" labelPlacement="floating" 
+type="text"
+name="businessupiid"
+[ngModel]="businessdetails.upi_id"
+id="businessupiid"   
+></ion-input>
+
+
+      <!-- <input type="text" name="businessupiid" [(ngModel)]="businessupiid" placeholder="{{ businessdetails.upi_id }}"
+        class="form-control"> -->
+        <br/>
+
+      <div class="fullbutton">
+        <input type="submit" value="Update"  />
+      </div>
+    </form>
+  </div>
+</div>
+
+<app-footer></app-footer>

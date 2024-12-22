@@ -1,0 +1,81 @@
+.customerlist li h5 {
+    font-size: 13px;
+}
+
+.customersale {
+    margin-top: 45px !important; margin-bottom: 46px;
+}
+.imagebox{
+    height: 45px;
+    width: 60px;
+    // margin-bottom: 20px;
+    margin-right: 10px;
+}
+.imagebox img{width: 100%; height: 100%;}
+.customerlist li h5{
+    font-size: 15px;
+}
+.customerlist li p .saleprice{color: #097500; margin-right: 5px;}
+.customerlist li p .mrp{color: #750000; margin-right: 5px; text-decoration: line-through;}
+
+    .customerlist li .box1 {
+        width: 55%;
+    }
+    .customerlist li .box1 h5{cursor: pointer;}
+    .addpurched {
+        padding: 10px;
+        text-align: right;
+        background: #1f60a6;
+        color: #fff;
+        position: fixed;
+        right: 0px;
+        bottom: 180px;
+        font-size: 13px;
+      }
+      .homesec2 ul li{margin-top: 8px;}
+
+      .homesec2 .has-search{margin-right:inherit; margin-bottom: 10px; }
+
+
+      .addcategorylist {
+        padding: 10px;
+        text-align: right;
+        background: #1f60a6;
+        color: #fff;
+        position: fixed;
+        right: 0px;
+        bottom: 152px;
+        font-size: 13px;
+      }
+.leftside{display: flex;}
+
+ul.homeheader li{margin-left: 17px; font-size: 16px;}
+
+.selectedProduct{
+background-color: #fcfcfc;
+border:1px solid rgb(181, 180, 180);
+border-radius: 8px;
+}
+
+.apply-button{
+    padding: 10px;
+  text-align: right;
+  background: #1fa67a;
+  color: #fff;
+  font-size: 13px;
+  width: 100%;
+  text-align: center;
+}
+input[type=radio] {
+    border: 0px;
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.loading-button{
+    background-color: #097500;
+    color:white;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+.customerlist li p{margin-bottom: 0px;}

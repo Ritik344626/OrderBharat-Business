@@ -1,0 +1,23 @@
+<app-subheader></app-subheader>
+
+<div class="mainbody">
+  <div class="businesscategorylist">
+    <form class="businessquery" (ngSubmit)="submitquery(prdctedit)" #prdctedit="ngForm">
+      <ion-item>
+        <ion-textarea label="Short Info" labelPlacement="stacked" placeholder="{{ businessdetails.mobile_shortinfo }}" name="businessshortinfo"  [(ngModel)]="businessshortinfo" style="height: 200px;"></ion-textarea>
+      </ion-item>
+
+  
+      <!-- <textarea name="businessshortinfo"  [(ngModel)]="businessshortinfo"  placeholder="{{ businessdetails.mobile_shortinfo }}" class="form-control"></textarea> -->
+
+      <!-- <input type="text" name="businessshortinfo"  [(ngModel)]="businessshortinfo"  placeholder="Short Info" class="form-control" >
+     -->
+
+      <div class="fullbutton">
+        <input type="submit" value="Update" />
+      </div>
+    </form>
+  </div>
+</div>
+
+<app-footer></app-footer>

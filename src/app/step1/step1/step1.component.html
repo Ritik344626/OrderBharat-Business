@@ -1,0 +1,57 @@
+<div class="wrapper">
+  <!-- Sidebar  -->
+  <!-- Page Content  -->
+  <div id="content">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <div class="name text-left">&nbsp; Order Bharat Business</div>
+      </div>
+    </nav>
+
+<div class="mainbody">
+  <div class="businesscategorylist">
+    <form class="businessquery" #step1="ngForm">
+<button (click)="trackMe()" class="btn btn-info">Fetch current location</button>
+      <div class="form-group has-search">
+        <select class="form-control" [(ngModel)]="state" name="state" (change)="stateid($event)">
+          <option value="" selected>----Select State----</option>
+          <option *ngFor="let data of stateslistdata" value="{{ data.id }}">
+            {{ data.name }}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group has-search">
+        <select class="form-control" [(ngModel)]="city_id" name="city_id">
+          <option value="" selected>----Select City----</option>
+          <option *ngFor="let data of cityslistdata" value="{{ data.id }}">
+            {{ data.name }}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <input type="text" name="name"  [(ngModel)]="name"  placeholder="Business Name" class="form-control" >
+      </div>
+
+      <div class="form-group">
+        <input type="text" name="address"  [(ngModel)]="address"  placeholder="Address" class="form-control" >
+      </div>
+      
+      
+
+      <div class="form-group">
+      <input type="text" name="Pincode"  [(ngModel)]="pincode"  placeholder="Pincode" class="form-control" >
+    </div>
+
+   
+      <div class="fullbutton">
+        <input type="submit" value="Update"  (click)="submitquery()"/>
+      </div>
+    </form>
+  </div>
+</div>
+
+</div>
+<div class="overlay"></div>
+</div>

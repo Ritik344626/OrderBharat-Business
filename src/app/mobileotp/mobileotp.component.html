@@ -1,0 +1,43 @@
+<div class="wrapper">
+  <!-- Sidebar  -->
+
+  <!-- Page Content  -->
+  <div id="content"> 
+    <div class="mainbody">
+      <div class="logo"><img src="assets/images/index/logo.png" width="169px" /></div>
+      <div class="indextop">
+        <img src="assets/images/index/set-business-layout-2a.png" />
+      </div>
+  
+      <div class="section1">
+        <img src="assets/images/index/set-business-layout-2.png" />
+      </div>
+      <div class="indexfrom text-center">
+        <div style="margin-bottom: 9px; font-size: 14px; ">
+          We are sended otp to your mobile number
+        </div>
+
+        <form (ngSubmit)="verifyotp(mobotp)" #mobotp="ngForm">
+          <div class="form-group mx-2">
+            <input
+              type="number"
+              name="otp"
+              [(ngModel)]="storedotp"
+              class="inputset2"
+              id="inputEmail4"
+              placeholder="Mobile OTP"
+            />
+          </div>
+          <div class="fullbutton">
+            <input
+              class="fullbutton"
+              type="submit"
+              [value]="otpLoaderStatus ? 'Loading...' : 'Verify'"
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="overlay"></div>
+</div>

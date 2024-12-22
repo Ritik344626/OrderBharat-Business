@@ -1,0 +1,78 @@
+<div class="wrapper" >
+  <div class="overlay"></div>
+  <div id="content">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <div class="leftbar d-flex align-items-center">
+          <div (click)="goBack()">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+          </div>
+          <div class="name text-left appsnametop">
+            &nbsp; Poster View
+          </div>
+        </div>
+        <ul class="homeheader navbar-nav ml-auto">
+          <!-- Additional navbar content can go here -->
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>
+<div class="mainbody">
+  <div class="">
+
+    
+
+    <div #captureElement style="padding: 20px;  text-align: center;">
+
+      <div class="background">
+
+        <img [src]="backgroundImage" width="100%">
+
+        <div class="overlayer"><img src="/assets/images/overlayer.png" width="100%">
+
+          <div class="details">
+          <div class="title profiletop" style="padding-bottom: 10px;">
+            <p class="inner">
+              <span>{{ businessdetails.name?.substring(0, 1) }}</span> {{ businessdetails.name }}
+            </p>
+          </div>
+          <div class="imagebox1">    
+            <div class="logobox">
+            <img src="assets/images/index/logo.png">
+          </div>
+    
+            <div class="details">
+              <p>Scan to order with Order Bharat App</p>
+            </div>
+          </div>
+
+        </div>
+        </div>
+
+
+
+
+     
+    </div>
+
+    </div>
+    <input
+        type="button"
+        (click)="reloadAndShare()"
+        value="Share"
+        class="submit"
+      />
+
+    <!-- <div *ngIf="image">
+      <img [src]="image" alt="Captured Image" />
+    </div> -->
+	
+	 
+
+ </div>
+
+ </div>
+
+
+<app-footer></app-footer>

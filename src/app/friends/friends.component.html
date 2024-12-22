@@ -1,0 +1,36 @@
+<app-subheader></app-subheader>
+<div class="mainbody">
+  <div class="title">
+    <div class="tab " (click)="chats()">Shops</div>
+    <div class="tab active" (click)="friends()">Friends</div>
+    <div class="tab" (click)="invite()">Invite</div>
+    <div class="tab" (click)="invitepending()">Pending</div>
+    <div class="tab" (click)="posts()">Posts</div>
+  </div>
+  <div class="shoplist"> 
+    <div class="homesec2 search">
+      <div class="form-group has-search searchfull"> <span class="fa fa-search form-control-feedback"></span>
+        <input type="text" class="form-control" placeholder="Search Name" (input)="searchfriend($event)">
+      </div>    
+    </div>
+    <ul class="contacts">
+
+      <li *ngFor="let data of friendlist">
+        <div class="d-flex bd-highlight">
+          <div class="img_cont">
+            <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img">
+            <span class="online_icon"></span>
+          </div>
+          <div class="user_info">
+            <span (click)="friendschat(data.visitor_id)">#{{ data.name.substring(0, 20) }}</span>
+            <p>Kalid is online</p>
+          </div>
+        </div>
+      </li>     
+      </ul>
+  </div>
+  
+</div>
+
+<app-footer></app-footer>
+

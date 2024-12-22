@@ -1,0 +1,64 @@
+<div class="wrapper" >
+  <div class="overlay"></div>
+  <div id="content">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <div class="leftbar d-flex align-items-center">
+          <div (click)="goBack()">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+          </div>
+          <div class="name text-left appsnametop">
+            &nbsp; Poster View
+          </div>
+        </div>
+        <ul class="homeheader navbar-nav ml-auto">
+          <!-- Additional navbar content can go here -->
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>
+<div class="mainbody">
+  <div #captureElement class="image-container" id="image-container">
+    <img [src]="backgroundImage" alt="Background Image" class="background-image">
+    <img [src]="overlayImage" alt="Overlay Image" class="overlay-image">
+    <div class="overlay-text" id="overlay-text" [innerHtml]="newText.content"></div>
+    <div *ngFor="let text of texts" class="overlay-text"
+         [ngStyle]="{'top': text.top + 'px', 'left': text.left + 'px', 'font-size': text.size + 'px', 'color': text.color}"
+         (mousedown)="startDragging($event, text)"
+         (touchstart)="startDragging($event, text)"
+         (mousemove)="drag($event)"
+         (touchmove)="drag($event)"
+         (mouseup)="stopDragging()"
+         (touchend)="stopDragging()">
+      {{ text.content }}
+    </div>
+  </div>
+
+  <input
+        type="button"
+        (click)="reloadAndShare()"
+        value="Share"
+        class="submit"
+      />
+
+  <!-- <ion-button expand="full" (click)="saveAndShareImage()">Share Image</ion-button> -->
+<!-- Controls for changing text properties -->
+<!-- <div class="controls" *ngIf="currentText">
+  <label>
+    Color:
+    <input type="color" (input)="changeColor($event)" />
+  </label>
+  <label>
+    Font Size:
+    <input type="number" min="10" max="100" (input)="changeFontSize($event)" />
+  </label>
+</div> -->
+
+
+
+</div>
+
+
+
+<app-footer></app-footer>

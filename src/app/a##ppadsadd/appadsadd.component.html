@@ -1,0 +1,234 @@
+<app-subheader></app-subheader>
+<div class="mainbody step1">
+  <!-- <div class="clear"></div> -->
+  <!-- <h6>Business Name: {{ businessdetails.name }}</h6>-->
+  <hr />
+
+  <form
+    action="javascript:void(0)"
+    ngNoForm
+    (onChange)="priceCalculation(start_date, end_date, selectKm)"
+  >
+    <!-- <div class="form-group">
+            <input type="text" name="ads_name"  [(ngModel)]="ads_name"  placeholder="Ads Name" class="form-control" >
+          </div> -->
+    <div class="set1">
+      <h6>Start Date :</h6>
+      <div class="form-group">
+        <ion-datetime-button datetime="start_date"></ion-datetime-button>
+
+        <ion-modal [keepContentsMounted]="true">
+          <ng-template>
+            <ion-datetime
+              id="start_date"
+              presentation="date"
+              displayFormat="DD/MM/YYYY"
+              pickerFormat="DD/MM/YYYY"
+              [(ngModel)]="start_date"
+              name="start_date"
+            ></ion-datetime>
+          </ng-template>
+        </ion-modal>
+        <!-- <ion-datetime name="start_date"  [(ngModel)]="start_date"  placeholder="Start Date"></ion-datetime> -->
+        <!-- <input type="date" name="start_date"  [(ngModel)]="start_date"  placeholder="Start Date" class="form-control" > -->
+      </div>
+    </div>
+
+    <div class="set1">
+      <h6>End Date :</h6>
+      <div class="form-group">
+        <ion-datetime-button datetime="end_date"></ion-datetime-button>
+        <ion-modal [keepContentsMounted]="true">
+          <ng-template>
+            <ion-datetime
+              id="end_date"
+              presentation="date"
+              displayFormat="DD/MM/YYYY"
+              pickerFormat="DD/MM/YYYY"
+              [(ngModel)]="end_date"
+              name="end_date"
+            ></ion-datetime>
+          </ng-template>
+        </ion-modal>
+        <!-- <ion-datetime name="end_date"  [(ngModel)]="end_date"  placeholder="End Date" ></ion-datetime> -->
+        <!-- <input type="date" name="end_date"  [(ngModel)]="end_date"  placeholder="End Date" class="form-control" > -->
+      </div>
+    </div>
+    <div class="set1">
+      <h6>Publish Days:</h6>
+      <p *ngIf="days > 7">{{ days }}</p>
+      <p *ngIf="days < 7" style="color: red">Select Minimum 7 days</p>
+    </div>
+
+    <!-- <h6>PPC Price: (Min. &#8377; 5/-)</h6>
+       <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" value="1" name="maxprice" [(ngModel)]="maxprice" >
+        <label class="form-check-label" for="inlineCheckbox1">Maximum Bid Price</label>
+      </div> -->
+    <hr />
+
+    <h6>
+      Location :
+      <button (click)="getLocation()" class="btn-primary rounded px-2">
+        <i class="fa fa-map-marker" aria-hidden="true"></i> Current Location
+      </button>
+    </h6>
+
+    <!-- <div *ngIf="currentLocation">
+      <p>Latitude: {{ currentLocation.latitude }}</p>
+      <p>Longitude: {{ currentLocation.longitude }}</p>
+    </div>
+    or -->
+    <ion-list>
+      <ion-input
+        id="open-modal"
+        expand="block"
+        class="ion-padding px-3"
+        search-icon="search-circle"
+        [value]="query"
+        placeholder="Search for area, street..."
+        type="text"
+      ></ion-input>
+    </ion-list>
+
+    <!-- <div id="locationBadge" *ngIf="selectedLocation?.length > 0">
+        <div *ngFor="let location of selectedLocation" class="ion-margin-top">
+          <ion-chip>
+  
+            <ion-label>{{ location?.title }}</ion-label>
+            <ion-icon
+              name="close-circle-outline"
+              (click)="removeLocation(location)"
+            ></ion-icon>
+          </ion-chip>
+        </div>
+      </div> -->
+    <br />
+    Distance : ({{ selectKm }} in Km)
+    <div>
+      <ion-range
+        width="100"
+        pin="true"
+        ticks="true"
+        snaps="true"
+        [value]="selectKm"
+        (ionChange)="onChangedRange($event)"
+        min="1"
+        max="50"
+        step="1"
+      >
+        <ion-label slot="start">{{ kmRange.lower }} km</ion-label>
+        <ion-label slot="end">{{ kmRange.upper }} km</ion-label>
+      </ion-range>
+    </div>
+
+    <br />
+
+    <div id="map"></div>
+    <br />
+
+    <div class="set1">
+      <strong>Price</strong>
+      <p>{{ maxprice }}</p>
+    </div>
+    <div class="set1">
+      <strong>Discount 10%</strong>
+      <p>{{ discount }}</p>
+    </div>
+
+    <div class="set1">
+      <strong>Discounted Amount</strong>
+      <p>{{ maxprice - discount }}</p>
+    </div>
+
+    <div class="set1">
+      <strong>GST 18%</strong>
+      <p>{{ gstPrice }}</p>
+    </div>
+    <div class="set1">
+      <strong>Final Price</strong>
+      <p>{{ finalPrice }}</p>
+    </div>
+    {{ priceCalculation(start_date, end_date, selectKm) }}
+    <div class="set1">
+      <button id="payButton" (click)="submitquery($event)">
+        Pay ₹{{ finalPrice }}
+      </button>
+    </div>
+
+    <hr />
+  </form>
+  <ion-modal #modal trigger="open-modal">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-searchbar
+            class="ion-padding"
+            [value]="query"
+            placeholder="Search for area, street..."
+            type="text"
+            show-clear-button="always"
+            (ionInput)="onSearchChange($event)"
+          ></ion-searchbar>
+          <ion-buttons slot="end">
+            <ion-button (click)="modal.dismiss()">Close</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list *ngIf="places?.length > 0">
+          <ion-item
+            id="open-toast"
+            expand="block"
+            *ngFor="let place of places"
+            (click)="selectedAddress(place); modal.dismiss()"
+            class="ion-margin-top"
+          >
+            <ion-icon name="location-outline" slot="start"></ion-icon>
+            <ion-label>
+              {{ place?.title }}
+              <p>
+                <ion-text> {{ place?.address }} </ion-text>
+              </p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ng-template></ion-modal
+  >
+
+  <div class="clear"></div>
+</div>
+
+<!-- </ion-content> -->
+<app-footer></app-footer>
+
+<!-- <div class="footer">
+  <ul>
+    <li>
+      <a routerLink="/home"
+        ><i class="fa fa-home" aria-hidden="true"></i>
+        <p>Home</p>
+      </a>
+    </li>
+  
+    <li><a routerLink="/products"><i class="fa fa-gift" aria-hidden="true"></i><p>Product</p></a></li>
+    <li>
+      <a routerLink="/orderlist"
+        ><i class="fa fa-balance-scale" aria-hidden="true"></i>
+        <p>Order List</p>
+      </a>
+    </li>
+	<li>
+  <a routerLink="/cataloguec">
+	  <i class="fa fa-th-large" aria-hidden="true"></i>
+        <p>Offer</p>
+      </a>
+    </li>
+	
+	<li>
+    <a routerLink="/appads"><i class="fa fa-bullhorn" aria-hidden="true"></i> <p>Ads</p></a>
+    </li>
+  
+  </ul>
+</div> -->

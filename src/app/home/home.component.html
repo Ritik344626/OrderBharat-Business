@@ -1,0 +1,67 @@
+<app-header></app-header>
+<div *ngIf="auth == true" class="mainbody" (scroll)="getScrollPos($event)">
+  <div class="topset">
+
+    <div class="section2">
+      <div class="text">
+    <h5 (click)="editprofile()">
+      {{ bnm }} ..
+      <i class="fa fa-pencil" aria-hidden="true"></i>
+    </h5>
+  </div>
+
+  <div class="showqrcode" (click)="qrcodeview()">
+    <i class="fa fa-qrcode" aria-hidden="true"></i>
+    Share your QR code
+  </div>
+
+
+  </div>
+
+
+    <div class="hometopbox">
+      <div class="sectiontop">
+        <div class="box">
+          <h4>{{ productcount }}</h4>
+          <p>Products No.</p>
+        </div>
+        <div class="box">
+          <h4> {{ orderplaced }}</h4>
+          <p>Order placed No.</p>
+        </div>
+        <div class="box">
+          <h4> {{ ordercompleted }}</h4>
+          <p>Order completed</p>
+        </div>
+      </div>     
+    </div>
+
+   
+  </div>
+  
+
+
+  <div class="poster" *ngIf="!loading">
+    <div class="section1" *ngFor="let category of categoriesWithPosters">
+      <div class="titel">
+        <h4>{{ category.category_name }}</h4>
+        <h5><a (click)="posterlist(category.orderbharatcategorysid)">View All</a></h5>  
+      </div>
+      <div class="section1inner">
+        <ul>
+          <li *ngFor="let poster of category.posters">
+            <img [src]="'https://orderbharat.com/uploads/posters/' + poster.poster_name" alt="" width="150px">
+            <div class="share" (click)="posterview(poster.order_bharat_posters_id)">
+              <i class="fa fa-share" aria-hidden="true"></i> Share
+            </div>
+          </li>       
+        </ul>
+      </div>
+    </div>    
+  </div>
+  
+  <div class="loader" *ngIf="loading"></div>
+  
+</div>
+
+<app-footer></app-footer>

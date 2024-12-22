@@ -1,0 +1,33 @@
+<app-subheader></app-subheader>
+
+<div class="mainbody">
+  <div class="businesscategorylist">
+    <form class="businessquery">
+    
+      <input type="text" name="amount" [(ngModel)]="amount"  placeholder="Amout" class="form-control">
+      <br />
+      <!-- <input type="text" name="payerAccount" [(ngModel)]="payerAccount" placeholder="Enter UPI ID" class="form-control">
+     -->
+      <!-- <textarea name="businesseditdelivery"   [(ngModel)]="businesseditdelivery"  placeholder="Delivery List" class="form-control"></textarea> -->
+      <div class="fullbutton" style="text-align: center;">
+        <br />
+        <input [disabled]="isdes" type="submit" class="btn btn-success" value="Add Amount" (click)="submitquery()" />
+        <p id="addwallt" tyle="text-align: center;
+        font-size: 21px;
+        font-weight: 500;color:green">{{ addwal }}</p>
+      </div>
+      <div style="text-align: center;">
+        <button (click)="addwall(1000)" class="btn btn-info" style="padding: 5px;
+        margin: 9px;">1000</button><button (click)="addwall(1500)" class="btn btn-info" style="padding: 5px;
+            margin: 9px;">1500</button>
+        <button (click)="addwall(2000)" class="btn btn-info" style="padding: 5px;
+                margin: 9px;">2000</button>
+      </div>
+    </form>
+    <p style="text-align: center;
+        font-size: 21px;
+        font-weight: 500;">Minimum balance Rs 1000</p>
+  </div>
+</div>
+
+<app-footer></app-footer>
