@@ -41,7 +41,7 @@ export class AppadsaddComponent implements OnInit {
   query: string;
   placesSub: Subscription;
   private _places = new BehaviorSubject<any[]>([]);
-  kmRange = { lower: 1, upper: 50 };
+  kmRange = { lower: 5, upper: 50 };
   selectKm = 10;
   businessdetails: any = [];
   map = null;
@@ -52,6 +52,7 @@ export class AppadsaddComponent implements OnInit {
   location_km: any;
   maxprice: number;
   discount = 0;
+  discountedPrice = 0;
   days: number = 0;
   gstPrice: number = 0;
   finalPrice: number = 0;
@@ -66,7 +67,7 @@ export class AppadsaddComponent implements OnInit {
   otherdata: any;
   private searchSubject = new Subject<string>();
   searchSub: Subscription;
-  subscription: number;
+  subscription: string = '30'; // Default value for the select
 
   get search_places() {
     return this._places.asObservable();
@@ -120,7 +121,7 @@ export class AppadsaddComponent implements OnInit {
     const startDate = new Date();
     this.start_date = startDate.toISOString();
     const endDate = new Date(
-      startDate.getTime() + this.subscription * 24 * 60 * 60 * 1000
+      startDate.getTime() + parseInt(this.subscription) * 24 * 60 * 60 * 1000
     );
 
     this.end_date = endDate.toISOString();
@@ -273,69 +274,129 @@ export class AppadsaddComponent implements OnInit {
     this.renderMarkers();
   }
 
-  priceCalculation(start_date, end_date, seletedKm) {
-    //define two date object variables to store the date values
-    var date1 = new Date(start_date);
-    var date2 = new Date(end_date);
+  // priceCalculation(start_date, end_date, seletedKm) {
+  //   //define two date object variables to store the date values
+  //   var date1 = new Date(start_date);
+  //   var date2 = new Date(end_date);
 
-    //calculate time difference
-    var time_difference = date2.getTime() - date1.getTime();
-    //calculate days difference by dividing total milliseconds in a day
-    this.days = Math.round(time_difference / (1000 * 3600 * 24));
-    // days and price calculation
-    if(this.days == 360){
-      this.days = 360;
-    }
-    console.log(this.days)
+  //   //calculate time difference
+  //   var time_difference = date2.getTime() - date1.getTime();
+  //   //calculate days difference by dividing total milliseconds in a day
+  //   this.days = Math.round(time_difference / (1000 * 3600 * 24));
+  //   // days and price calculation
+  //   if(this.days == 360){
+  //     this.days = 360;
+  //   }
+  //   console.log(this.days)
 
-    let perLocation = Math.round(this.days * this.priceFix(seletedKm, this.days));
-    console.log(perLocation,'price from function')
-    // location selection based on final price
-    let price = Math.round(perLocation  + 13.3334 * this.days);
-    this.discount = 0;
-    this.maxprice = price;
+  //   let perLocation = Math.round(this.days * this.priceFix(seletedKm, this.days));
+  //   console.log(perLocation,'price from function')
+  //   // location selection based on final price
+  //   let price = Math.round(perLocation  + 13.3334 * this.days);
+  //   this.discount = 0;
+  //   this.maxprice = price;
 
-    // Price               = 15000
-    // Discount 10%=    1100
-    // GST 18%        =   2502
-    // Final Price = 16402
+  //   // Price               = 15000
+  //   // Discount 10%=    1100
+  //   // GST 18%        =   2502
+  //   // Final Price = 16402
 
-    // if (this.maxprice > 4000) {
-    //   this.discount = ((this.maxprice - 4000) * 10) / 100;
-    // }
-    // this.gstPrice = ((this.maxprice - this.discount) * 18) / 100;
-    // this.finalPrice = Math.round(this.maxprice - this.discount + this.gstPrice);
+  //   // if (this.maxprice > 4000) {
+  //   //   this.discount = ((this.maxprice - 4000) * 10) / 100;
+  //   // }
+  //   // this.gstPrice = ((this.maxprice - this.discount) * 18) / 100;
+  //   // this.finalPrice = Math.round(this.maxprice - this.discount + this.gstPrice);
 
     
-    this.gstPrice = ((this.maxprice) * 18) / 100;
-    this.finalPrice = Math.round(this.maxprice + this.gstPrice);
+  //   this.gstPrice = ((this.maxprice) * 18) / 100;
+  //   this.finalPrice = Math.round(this.maxprice + this.gstPrice);
 
-    // console.log('priceFix::', finalPrice);
+  //   // console.log('priceFix::', finalPrice);
+  // }
+
+  // priceFix(kmRange: any, days:number): any {
+  //   let price:number;
+
+  //   if(days == 30){
+  //     price = 10
+  //   }
+  //   else if(days == 90){
+  //     price = 9.3334
+  //   }
+  //   else if(days == 180){
+  //     price = 8.6667
+  //   }
+  //   else if(days == 360){
+  //     price = 8.3334
+  //   }
+  //   //first 1 km
+  //   if (kmRange == 1) {
+  //     return 13.3334;
+  //   } else {
+  //     //first 1 km above calculation
+  //     return price * (kmRange - 1);
+  //   }
+  // }
+
+  priceCalculation(start_date: string, end_date: string, selectedKm: number) {
+    // Define two date objects to store the date values
+    const date1 = new Date(start_date);
+    const date2 = new Date(end_date);
+  
+    // Calculate the time difference in milliseconds
+    const time_difference = date2.getTime() - date1.getTime();
+  
+    // Calculate the number of days
+    this.days = Math.round(time_difference / (1000 * 3600 * 24));
+  
+    // Ensure days are capped for specific cases
+    if (this.days > 360) {
+      this.days = 360;
+    }
+  
+    // Calculate the base price and discount
+    const { basePrice, discount } = this.priceFix(selectedKm, this.days);
+  
+    // Apply the discount to get the discounted price
+    const discountedPrice = basePrice - discount;
+    this.discountedPrice = discountedPrice;
+  
+    // Calculate GST and final price
+    this.gstPrice = (discountedPrice * 18) / 100;
+    this.finalPrice = Math.round(discountedPrice + this.gstPrice);
+  
+    console.log('Base Price:', basePrice);
+    console.log('Discount:', discount);
+    console.log('Discounted Price:', discountedPrice);
+    console.log('GST Price:', this.gstPrice);
+    console.log('Final Price:', this.finalPrice);
   }
-
-  priceFix(kmRange: any, days:number): any {
-    let price:number;
-
-    if(days == 30){
-      price = 10
+  
+  priceFix(kmRange: number, days: number): { basePrice: number; discount: number } {
+    let pricePerKm = 100; // Base price per km for 30 days
+    let discountRate = 0; // Default discount rate
+  
+    // Calculate the number of 30-day periods
+    const numPeriods = Math.ceil(days / 30);
+  
+    // Set discount rate based on the duration
+    if (days <= 30) {
+      discountRate = 0; // No discount for 30 days
+    } else if (days <= 180) {
+      discountRate = 0.05; // 5% discount for 6 months
+    } else if (days <= 360) {
+      discountRate = 0.12; // 12% discount for 12 months
     }
-    else if(days == 90){
-      price = 9.3334
-    }
-    else if(days == 180){
-      price = 8.6667
-    }
-    else if(days == 360){
-      price = 8.3334
-    }
-    //first 1 km
-    if (kmRange == 1) {
-      return 13.3334;
-    } else {
-      //first 1 km above calculation
-      return price * (kmRange - 1);
-    }
+  
+    // Calculate base price
+    const basePrice = kmRange * pricePerKm * numPeriods;
+  
+    // Calculate discount
+    const discount = basePrice * discountRate;
+  
+    return { basePrice, discount };
   }
+  
 
   // 20km
   // 1*16.67

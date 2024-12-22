@@ -13,9 +13,9 @@
       <ion-item>
         <ion-select [(ngModel)]="subscription" (ionChange)="onSubscriptionChange($event)" label="Choose subscription" placeholder="Choose Subscription" okText="Choose subscription" cancelText="Cancel Choice">
           <ion-select-option value="30">30 days</ion-select-option>
-          <ion-select-option value="90">90 days</ion-select-option>
+          <!-- <ion-select-option value="90">90 days</ion-select-option> -->
           <ion-select-option value="180">180 days</ion-select-option>
-          <ion-select-option value="360">360 days</ion-select-option>
+          <ion-select-option value="360">365 days</ion-select-option>
         </ion-select>
       </ion-item>
     </div>
@@ -31,7 +31,7 @@
         <input class="form-check-input" type="checkbox" value="1" name="maxprice" [(ngModel)]="maxprice" >
         <label class="form-check-label" for="inlineCheckbox1">Maximum Bid Price</label>
       </div> -->
-    <hr />
+    <!-- <hr /> -->
 
     <h6>
       Location :
@@ -79,7 +79,7 @@
         snaps="true"
         [value]="selectKm"
         (ionChange)="onChangedRange($event)"
-        min="1"
+        min="5"
         max="50"
         step="1"
       >
@@ -104,7 +104,7 @@
 
     <div class="set1">
       <strong>Discounted Amount</strong>
-      <p>{{ maxprice - discount }}</p>
+      <p>{{ discountedPrice }}</p>
     </div>
 
     <div class="set1">
